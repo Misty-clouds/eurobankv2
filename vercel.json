@@ -1,6 +1,0 @@
-{
-    "crons": [{
-      "path": "https://www.eurpank.com/api/cron/initiate",
-      "schedule": "0 0 * * *"
-    }]
-  }
