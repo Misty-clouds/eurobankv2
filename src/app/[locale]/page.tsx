@@ -43,8 +43,8 @@ const EuroBankLandingPage = () => {
   const pricingPlans = [
     {
       level: 'VIP 1',
-      minInvestment: 50,
-      monthlyReturn: 25,
+      minInvestment: 80,
+      monthlyReturn: 60,
       features: [
         t('pricing.vip1.feature1'),
         t('pricing.vip1.feature2')
@@ -53,7 +53,7 @@ const EuroBankLandingPage = () => {
     {
       level: 'VIP 5',
       minInvestment: 500,
-      monthlyReturn: 250,
+      monthlyReturn: 450,
       features: [
         t('pricing.vip5.feature1'),
         t('pricing.vip5.feature2')
@@ -63,7 +63,7 @@ const EuroBankLandingPage = () => {
     {
       level: 'VIP 10',
       minInvestment: 15000,
-      monthlyReturn: 7500,
+      monthlyReturn: 13500,
       features: [
         t('pricing.vip10.feature1'),
         t('pricing.vip10.feature2')

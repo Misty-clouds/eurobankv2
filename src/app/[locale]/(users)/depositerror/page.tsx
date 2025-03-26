@@ -60,7 +60,7 @@ export default function DepositErrorReasons() {
         <div className="bg-secondary p-4 flex justify-between items-center mb-8 rounded-2xl">
           <div className="flex items-center space-x-4">
             <button
-              onClick={() => router.push('/dashboard')}
+              onClick={() => router.back()}
               className="text-muted-foreground hover:text-primary"
             >
               <ChevronLeft className="w-6 h-6" />

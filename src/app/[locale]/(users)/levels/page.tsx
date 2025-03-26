@@ -13,16 +13,16 @@ interface LevelInfo {
 }
 
 const levels: LevelInfo[] = [
-  { level: 1, dailyProfit: "$1", deposit: "$50" },
-  { level: 2, dailyProfit: "$2.00", deposit: "$100" },
-  { level: 3, dailyProfit: "$4.00", deposit: "$200" },
-  { level: 4, dailyProfit: "$8.00", deposit: "$400" },
-  { level: 5, dailyProfit: "$10.00", deposit: "$500" },
-  { level: 6, dailyProfit: "$20.00", deposit: "$1,000" },
-  { level: 7, dailyProfit: "$40.00", deposit: "$2,000" },
-  { level: 8, dailyProfit: "$100.00", deposit: "$5,000" },
-  { level: 9, dailyProfit: "$200.00", deposit: "$10,000" },
-  { level: 10, dailyProfit: "$300.00", deposit: "$15,000" },
+  { level: 1, dailyProfit: "$2.00", deposit: "$80" },
+  { level: 2, dailyProfit: "$3.00", deposit: "$100" },
+  { level: 3, dailyProfit: "$6.00", deposit: "$200" },
+  { level: 4, dailyProfit: "$12.00", deposit: "$400" },
+  { level: 5, dailyProfit: "$15.00", deposit: "$500" },
+  { level: 6, dailyProfit: "$30.00", deposit: "$1,000" },
+  { level: 7, dailyProfit: "$60.00", deposit: "$2,000" },
+  { level: 8, dailyProfit: "$150.00", deposit: "$5,000" },
+  { level: 9, dailyProfit: "$300.00", deposit: "$10,000" },
+  { level: 10, dailyProfit: "$450.00", deposit: "$15,000" },
 ];
 
 export default function LevelsPage() {

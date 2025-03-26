@@ -214,8 +214,10 @@ export default function DepositStatus() {
                     </div>
                   </div>
 
-                   {/* Add verification button for pending/expired status */}
-                  {(deposit.status === 'pending' || deposit.status === 'expired') && (
+                   {/* verification button for pending/expired status 
+                    //Not needed in nowpayment implementation 
+                   */}
+                  {/* {(deposit.status === 'pending' || deposit.status === 'expired') && (
                     <button
                       onClick={() => verifyDeposit(deposit)}
                       disabled={verifyingDepositId===deposit.id}
@@ -224,7 +226,7 @@ export default function DepositStatus() {
                       <AlertCircle className="w-5 h-5" />
                       <span>{t('verifyTransaction')}</span>
                     </button>
-                  )} 
+                  )}  */}
 
                   
                 </div>
