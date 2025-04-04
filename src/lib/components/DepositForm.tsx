@@ -115,7 +115,7 @@ export default function DepositPage() {
             <DollarSign className="w-12 h-12 text-primary-foreground" />
           </div>
           <h2 className="text-2xl font-bold text-primary mb-2">{t("depositFunds")}</h2>
-          <p className="text-muted-foreground text-center">{t("chooseInvestment")}</p>
+          <p  className="text-green-500 font-bold  text-center">{t("chooseInvestment")}</p>
         </div>
 
         {/* Deposit Form */}
@@ -179,7 +179,7 @@ export default function DepositPage() {
       </div>
 
       <div className="bg-accent-800/50 text-red backdrop-blur-md rounded-2xl p-6 mb-8 border border-blue-700/50 space-y-6">
-        <h2 className="text-red">{t("disclaimer")}</h2>
+        <h2 className="  text-red-600 ">{t("disclaimer")}</h2>
         <div className="m-[200px]"></div>
       </div>
 

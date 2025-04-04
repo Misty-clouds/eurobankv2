@@ -79,62 +79,7 @@ export async function POST(request: Request) {
 
       case 'completed':
         // update status to complet using now api 
-        try {
-
-          // Process withdrawal using Bitget API
-          const response = await fetch(`https://eurobankv2.vercel.app/api/bitget`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              amount,
-              walletAddress: wallet_address,
-            }),
-          });
-           
-          if (!response.ok) {
-            throw new Error(`Bitget API error: ${response.statusText}`);
-          }
-
-          const data = await response.json();
-          const transactionHash = data.transactionHash || null;
-
-          const { error: transactionError } = await supabase
-          .from('withdrawal_queue')
-          .update({ 
-            status: 'completed'
-          })
-          .eq('id', id);
-
-          if (transactionError) {
-            throw new Error(`Transaction failed: ${transactionError.message}`);
-          }
-
-          // update withdrawal list
-          
-          const { error: listInsertError } = await supabase
-          .from('withdrawal_list')
-          .insert({ 
-            amount: amount,
-            wallet_address: wallet_address,
-            transaction_hash: transactionHash,
-            user_id: userId
-          })
-
-          if (listInsertError) {
-            throw new Error(`Transaction failed: ${listInsertError.message}`);
-          }
-            
-
-
-        } catch (withdrawalError) {
-          return NextResponse.json(
-            {
-              error: 'Withdrawal processing failed',
-              details: (withdrawalError as Error).message,
-            },
-            { status: 500 }
-          );
-        }
+        await updateWithdrawalStatus('pending', reason);
         break;
 
       default:
