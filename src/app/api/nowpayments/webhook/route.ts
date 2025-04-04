@@ -232,7 +232,6 @@ async function processDepositWebhook(body: DepositWebhookBody) {
       status: depositStatus,
       transaction_hash: payment_id,
       updated_at: new Date().toISOString(),
-      payment_details: body,
     })
     .eq("id", deposit.id)
 
