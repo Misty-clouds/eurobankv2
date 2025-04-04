@@ -258,14 +258,14 @@ const WithdrawalRequestCard = ({ request, onUpdateStatus }: {
             )}
           </div>
 
-          {request.status !='completed' && (
+          {request.status !='cancelled' && (
             <div className="flex space-x-2 w-full md:w-auto justify-end">
-              <button 
+              {/* <button 
                 onClick={() => initiateStatusUpdate('completed')}
                 className="bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition"
               >
                 <CheckCircle color='green' size={20} />
-              </button>
+              </button> */}
               <button 
                 onClick={() => initiateStatusUpdate('delayed')}
                 className="bg-orange-600 text-white p-2 rounded-full hover:bg-orange-700 transition"

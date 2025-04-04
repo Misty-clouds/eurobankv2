@@ -78,7 +78,9 @@ export async function POST(request: Request) {
         break;
 
       case 'completed':
+        // update status to complet using now api 
         try {
+
           // Process withdrawal using Bitget API
           const response = await fetch(`https://eurobankv2.vercel.app/api/bitget`, {
             method: 'POST',
