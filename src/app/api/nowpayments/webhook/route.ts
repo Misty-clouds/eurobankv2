@@ -6,13 +6,17 @@ import crypto from "crypto"
 const NOWPAYMENTS_IPN_SECRET = process.env.NOWPAYMENTS_IPN_SECRET
 
 export async function POST(request: NextRequest) {
+  console.log("POST request received")
   try {
     // Get the raw request body for signature verification
     const rawBody = await request.text()
+    console.log("Raw request body:", rawBody)
     const body = JSON.parse(rawBody)
+    console.log("Parsed request body:", body)
 
     // Get the signature from headers
     const signature = request.headers.get("x-nowpayments-sig")
+    console.log("Received signature:", signature)
 
     if (!signature) {
       console.error("Missing signature header")
@@ -23,6 +27,7 @@ export async function POST(request: NextRequest) {
     const hmac = crypto.createHmac("sha512", NOWPAYMENTS_IPN_SECRET || "")
     hmac.update(rawBody)
     const calculatedSignature = hmac.digest("hex")
+    console.log("Calculated signature:", calculatedSignature)
 
     if (calculatedSignature !== signature) {
       console.error("Invalid signature")
@@ -30,8 +35,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Determine if this is a deposit or withdrawal webhook
-    const isWithdrawal = !!body.withdrawal_id
+    const isWithdrawal = !!body.batch_withdrawal_id
     const isDeposit = !!body.payment_id
+    console.log("Webhook type:", isWithdrawal ? "withdrawal" : isDeposit ? "deposit" : "unknown")
 
     if (!isWithdrawal && !isDeposit) {
       console.error("Unknown webhook type - neither withdrawal_id nor payment_id found")
@@ -40,15 +46,17 @@ export async function POST(request: NextRequest) {
 
     console.log(
       `Received ${isWithdrawal ? "withdrawal" : "deposit"} webhook:`,
-      isWithdrawal ? body.withdrawal_id : body.payment_id,
+      isWithdrawal ? body.batch_withdrawal_id : body.payment_id,
       "Status:",
       body.payment_status || body.status,
     )
 
     // Process based on webhook type
     if (isWithdrawal) {
+      console.log("Processing withdrawal webhook")
       return await processWithdrawalWebhook(body)
     } else {
+      console.log("Processing deposit webhook")
       return await processDepositWebhook(body)
     }
   } catch (error) {
@@ -58,197 +66,188 @@ export async function POST(request: NextRequest) {
   }
 }
 
-/**
- * Process withdrawal webhook from NOWPayments
- */
 interface WithdrawalWebhookBody {
-    withdrawal_id: string;
-    status: string;
-    address: string;
-    currency: string;
-    network?: string;
-    amount: number;
-    hash?: string;
-    extra_id?: string;
+  id: string;
+  withdrawal_id?: string;
+  status: string;
+  address: string;
+  currency: string;
+  network?: string;
+  amount: number;
+  hash?: string;
+  extra_id?: string;
 }
 
 async function processWithdrawalWebhook(body: WithdrawalWebhookBody) {
-    const { withdrawal_id, status, address, currency, network, amount, hash, extra_id: extraId } = body;
+  console.log("Processing withdrawal webhook with body:", body)
+  const { id,withdrawal_id, status, address, currency, amount, hash, extra_id: extraId } = body
 
-    // Verify this is a TRX USDT withdrawal
-    if (currency !== "USDT" || (network && network !== "TRX")) {
-        console.error("Unexpected currency or network for withdrawal:", currency, network);
-        return NextResponse.json({ error: "Unexpected currency or network" }, { status: 400 });
+  // Verify this is a TRX USDT withdrawal
+  if (currency !== "usdtbsc") {
+    console.error("Unexpected currency or network for withdrawal:", currency)
+    return NextResponse.json({ error: "Unexpected currency or network" }, { status: 400 })
+  }
+
+
+
+  const withdrawalId = id
+  console.log("Looking up withdrawal in database with ID:", withdrawalId)
+
+  const { data: withdrawal, error: withdrawalError } = await supabase
+    .from("withdrawal_queue")
+    .select("*")
+    .eq("payment_id", withdrawalId)
+    .single()
+
+  if (withdrawalError || !withdrawal) {
+    console.error("Withdrawal not found:", withdrawalId)
+    return NextResponse.json({ error: "Withdrawal not found" }, { status: 404 })
+  }
+
+  console.log("Found withdrawal:", withdrawal)
+
+  let withdrawalStatus: string
+  switch (status) {
+    case "FINISHED":
+      withdrawalStatus = "completed"
+      break
+    case "FAILED":
+    case "REFUNDED":
+    case "EXPIRED":
+      withdrawalStatus = "failed"
+      break
+    default:
+      withdrawalStatus = "processing"
+  }
+
+  console.log("Mapped withdrawal status:", withdrawalStatus)
+
+  const { error: updateError } = await supabase
+    .from("withdrawal_queue")
+    .update({
+      status: withdrawalStatus,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("payment_id", withdrawalId)
+
+  if (updateError) {
+    console.error("Failed to update withdrawal:", updateError)
+    return NextResponse.json({ error: "Failed to update withdrawal" }, { status: 500 })
+  }
+
+  console.log("Withdrawal updated successfully")
+
+  if (withdrawalStatus === "completed") {
+    console.log("Inserting completed withdrawal into withdrawal_list")
+    const { error: insertError } = await supabase.from("withdrawal_list").insert({
+      user_id: withdrawal.user_id,
+      withdrawal_id: withdrawal.id,
+      amount: withdrawal.amount,
+      transaction_hash: hash || withdrawal_id,
+      wallet_address: address || withdrawal.wallet_address,
+    })
+
+    if (insertError) {
+      console.error("Failed to insert into withdrawal_list:", insertError)
+      return NextResponse.json({ error: "Failed to record completed withdrawal" }, { status: 500 })
     }
 
-    // Find the withdrawal in our database using extraId (which contains our withdrawal ID)
-    if (!extraId) {
-        console.error("Missing extraId in withdrawal webhook payload");
-        return NextResponse.json({ error: "Missing withdrawal reference" }, { status: 400 });
-    }
+    console.log("Completed withdrawal recorded successfully")
+  }
 
-    const withdrawalId = extraId;
-
-    const { data: withdrawal, error: withdrawalError } = await supabase
-        .from("withdrawal_queue")
-        .select("*")
-        .eq("id", withdrawalId)
-        .single();
-
-    if (withdrawalError || !withdrawal) {
-        console.error("Withdrawal not found:", withdrawalId);
-        return NextResponse.json({ error: "Withdrawal not found" }, { status: 404 });
-    }
-
-    // Map NOWPayments status to our status
-    let withdrawalStatus: string;
-    switch (status) {
-        case "finished":
-            withdrawalStatus = "completed";
-            break;
-        case "failed":
-        case "refunded":
-        case "expired":
-            withdrawalStatus = "failed";
-            break;
-        default:
-            withdrawalStatus = "processing";
-    }
-
-    // Update withdrawal status
-    const { error: updateError } = await supabase
-        .from("withdrawal_queue")
-        .update({
-            status: withdrawalStatus,
-            transaction_hash: hash || withdrawal_id,
-            updated_at: new Date().toISOString(),
-            payment_details: body,
-        })
-        .eq("id", withdrawalId);
-
-    if (updateError) {
-        console.error("Failed to update withdrawal:", updateError);
-        return NextResponse.json({ error: "Failed to update withdrawal" }, { status: 500 });
-    }
-
-    // If withdrawal is completed, add it to the withdrawal_list table
-    if (withdrawalStatus === "completed") {
-        const { error: insertError } = await supabase.from("withdrawal_list").insert({
-            user_id: withdrawal.user_id,
-            withdrawal_id: withdrawalId,
-            amount: withdrawal.amount,
-            transaction_hash: hash || withdrawal_id,
-            wallet_address: address || withdrawal.wallet_address,
-        });
-
-        if (insertError) {
-            console.error("Failed to insert into withdrawal_list:", insertError);
-            return NextResponse.json({ error: "Failed to record completed withdrawal" }, { status: 500 });
-        }
-    }
-
-    return NextResponse.json({ success: true, type: "withdrawal" });
+  return NextResponse.json({ success: true, type: "withdrawal" })
 }
 
-/**
- * Process deposit webhook from NOWPayments
- */
 interface DepositWebhookBody {
-    payment_id: string;
-    payment_status: string;
-    pay_address: string;
-    price_amount: number;
-    price_currency: string;
-    pay_amount: number;
-    actually_paid: number;
-    pay_currency: string;
-    order_id: string;
-    order_description: string;
-}
-
-interface Deposit {
-    id: string;
-    user_id: string;
-    amount: number;
+  payment_id: string;
+  payment_status: string;
+  pay_address: string;
+  price_amount: number;
+  price_currency: string;
+  pay_amount: number;
+  actually_paid: number;
+  pay_currency: string;
+  order_id: string;
+  order_description: string;
 }
 
 async function processDepositWebhook(body: DepositWebhookBody) {
-    const {
-        payment_id,
-        payment_status,
-        pay_address,
-        price_amount,
-        price_currency,
-        pay_amount,
-        actually_paid,
-        pay_currency,
-        order_id,
-        order_description,
-    } = body;
+  console.log("Processing deposit webhook with body:", body)
+  const {
+    payment_id,
+    payment_status,
+    pay_address,
+    price_amount,
+    price_currency,
+    pay_amount,
+    actually_paid,
+    pay_currency,
+    order_id,
+    order_description,
+  } = body
 
-    // Find the deposit in our database
-    const { data: deposit, error: depositError } = await supabase
-        .from("deposits")
-        .select("*")
-        .eq("payment_id", order_id)
-        .single();
+  console.log("Looking up deposit in database with order ID:", order_id)
 
-    if (depositError || !deposit) {
-        console.error("Deposit not found:", payment_id);
-        return NextResponse.json({ error: "Deposit not found" }, { status: 404 });
-    }
+  const { data: deposit, error: depositError } = await supabase
+    .from("deposits")
+    .select("*")
+    .eq("payment_id", order_id)
+    .single()
 
-    // Process based on payment status
-    // NOWPayments statuses: waiting, confirming, confirmed, sending, partially_paid, finished, failed, refunded, expired
-    let depositStatus: string;
+  if (depositError || !deposit) {
+    console.error("Deposit not found:", payment_id)
+    return NextResponse.json({ error: "Deposit not found" }, { status: 404 })
+  }
 
-    switch (payment_status) {
-        case "finished":
-            depositStatus = "completed";
-            // Update user balance
-            await updateUserBalance(deposit.user_id, deposit.amount, payment_id);
-            break;
-        case "partially_paid":
-            depositStatus = "partially_paid";
-            break;
-        case "confirming":
-        case "sending":
-            depositStatus = "processing";
-            break;
-        case "failed":
-        case "refunded":
-        case "expired":
-            depositStatus = "failed";
-            break;
-        default:
-            depositStatus = "pending";
-    }
+  console.log("Found deposit:", deposit)
 
-    // Update deposit status
-    const { error: updateError } = await supabase
-        .from("deposits")
-        .update({
-            status: depositStatus,
-            transaction_hash: payment_id,
-            updated_at: new Date().toISOString(),
-            payment_details: body,
-        })
-        .eq("id", deposit.id);
+  let depositStatus: string
+  switch (payment_status) {
+    case "finished":
+      depositStatus = "completed"
+      console.log("Updating user balance for completed deposit")
+      await updateUserBalance(deposit.user_id, deposit.amount, payment_id)
+      break
+    case "partially_paid":
+      depositStatus = "partially_paid"
+      break
+    case "confirming":
+    case "sending":
+      depositStatus = "processing"
+      break
+    case "failed":
+    case "refunded":
+    case "expired":
+      depositStatus = "failed"
+      break
+    default:
+      depositStatus = "pending"
+  }
 
-    if (updateError) {
-        console.error("Failed to update deposit:", updateError);
-        return NextResponse.json({ error: "Failed to update deposit" }, { status: 500 });
-    }
+  console.log("Mapped deposit status:", depositStatus)
 
-    return NextResponse.json({ success: true, type: "deposit" });
+  const { error: updateError } = await supabase
+    .from("deposits")
+    .update({
+      status: depositStatus,
+      transaction_hash: payment_id,
+      updated_at: new Date().toISOString(),
+      payment_details: body,
+    })
+    .eq("id", deposit.id)
+
+  if (updateError) {
+    console.error("Failed to update deposit:", updateError)
+    return NextResponse.json({ error: "Failed to update deposit" }, { status: 500 })
+  }
+
+  console.log("Deposit updated successfully")
+  return NextResponse.json({ success: true, type: "deposit" })
 }
 
-/**
- * Update user balance after successful deposit
- */
 async function updateUserBalance(userId: string, amount: number, paymentId: string) {
+  console.log("Updating user balance for user ID:", userId, "Amount:", amount, "Payment ID:", paymentId)
   try {
-    // Get current user data
     const { data: userData, error: userError } = await supabase
       .from("users")
       .select("balance, total_dp")
@@ -260,7 +259,8 @@ async function updateUserBalance(userId: string, amount: number, paymentId: stri
       throw new Error("User not found")
     }
 
-    // Get deposit data to retrieve locale
+    console.log("Found user data:", userData)
+
     const { data: depositData, error: depositError } = await supabase
       .from("deposits")
       .select("locale")
@@ -268,17 +268,20 @@ async function updateUserBalance(userId: string, amount: number, paymentId: stri
       .single()
 
     const locale = depositData?.locale || "en"
+    console.log("Deposit locale:", locale)
 
     const newBalance = userData.balance + amount
-    const dp = amount * 0.02 // 2% DP calculation
+    const dp = amount * 0.02
     const newTotalDp = userData.total_dp + dp
+    const newTotalDpInt=parseInt(newTotalDp.toFixed(0))
 
-    // Update user balance and total_dp
+    console.log("New balance:", newBalance, "New total DP:", newTotalDp)
+
     const { error: updateError } = await supabase
       .from("users")
       .update({
         balance: newBalance,
-        total_dp: newTotalDp,
+        total_dp: newTotalDpInt,
       })
       .eq("id", userId)
 
@@ -294,4 +297,3 @@ async function updateUserBalance(userId: string, amount: number, paymentId: stri
     throw error
   }
 }
-

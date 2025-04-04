@@ -44,15 +44,15 @@
     "pricing": {
       "title": "Pricing Plans",
       "vip1": {
-        "feature1": "$1.2 daily return",
+        "feature1": "$2 daily return",
         "feature2": "Low minimum investment"
       },
       "vip5": {
-        "feature1": "$10 daily return",
+        "feature1": "$15 daily return",
         "feature2": "Priority support"
       },
       "vip10": {
-        "feature1": "$300 monthly return",
+        "feature1": "$400 monthly return",
         "feature2": "Exclusive investment opportunities"
       },
       "minInvestment": "Minimum Investment: ${amount}",
@@ -140,7 +140,7 @@
       "DepositPage": {
         "deposit": "Deposit",
         "depositFunds": "Deposit Funds",
-        "chooseInvestment": "Deposit via USDT TRC20, Start earning daily profits.",
+        "chooseInvestment": "Deposit via USDT Binance Smart Chain (BSC), Start earning daily profits.",
         "selectDepositLevel": "Select Deposit Level",
         "chooseLevel": "Choose a level",
         "dailyProfit": "Daily Profit",
@@ -151,7 +151,10 @@
         "unexpectedError": "An unexpected error occurred.",
         "processing": "Processing...",
         "initiateDeposit": "Initiate Deposit",
-        "disclaimer": "Please ensure the wallet address is correct before submitting."
+        "disclaimer": "Please ensure the wallet address is correct before submitting.",
+        "waitingForConfirmation": "Waiting for confirmation...",
+        "backToDashboard": "Back to Dashboard",
+        "refreshStatus": "Refresh Status"
       },
       "DepositErrorReasons": {
           "depositError": "Deposit Error",
@@ -181,9 +184,9 @@
             "timeRemaining": "Time Remaining",
             "timeLimitNotice": "Payment must be completed within 30 minutes",
             "depositAddress": "Deposit Address",
-            "usdtTrc20Address": "USDT TRC20 Address",
+            "usdtTrc20Address": "USDT BSC Address",
             "copySuccess": "Copied to clipboard!",
-            "onlySendUsdt": "Only send USDT (TRC20) to this address. Sending other cryptocurrencies may result in permanent loss.",
+            "onlySendUsdt": "Only send USDT (BSC) to this address. Sending other cryptocurrencies may result in permanent loss.",
             "importantNotice": "Important Notice",
             "importantDetails": "• Deposits are only valid within the 30-minute time frame\n• After 30 minutes, you will need to initiate a new deposit\n• Ensure you send the exact amount to complete the transaction",
             "verifyDeposit": "Verify Deposit"
@@ -330,8 +333,8 @@
                     "form": {
                       "amountLabel": "Withdrawal Amount",
                       "amountPlaceholder": "Enter amount",
-                      "walletLabel": "USDT  Smart Chain BEP 20 Wallet Address",
-                      "walletPlaceholder": "Enter USDT  Smart Chain BEP20 wallet address",
+                      "walletLabel": "USDT  Smart Chain BSC Wallet Address",
+                      "walletPlaceholder": "Enter USDT  BSC wallet address",
                       "loading": "Loading...",
                       "submitButton": "Withdraw Funds"
                     },
@@ -339,7 +342,7 @@
                       "unauthenticated": "User not authenticated",
                       "invalidAmount": "Invalid withdrawal amount",
                       "exceedsBalance": "Amount is greater than total balance",
-                      "invalidWalletAddress": "Invalid USDT BEP20 wallet address",
+                      "invalidWalletAddress": "Invalid USDT BSC wallet address",
                       "unexpected": "An unexpected error occurred"
                     },
                     "success": {
@@ -374,10 +377,10 @@
                       "investmentLimits": {
                         "title": "Investment Limits",
                         "content": [
-                          "Minimum Investment: $50",
+                          "Minimum Investment: $80",
                           "Maximum Investment: $15,000 per transaction",
-                          "Daily Profit Limit: $300",
-                          "Monthly Investment Limit: $9,300"
+                          "Daily Profit Limit: $450",
+                          "Monthly Investment Limit: $13500"
                         ]
                       },
                       "riskManagement": {

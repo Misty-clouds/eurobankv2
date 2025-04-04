@@ -44,15 +44,15 @@
     "pricing": {
       "title": "خطط التسعير",
       "vip1": {
-        "feature1": "$1 عائد شهري",
+        "feature1": "$2 عائد شهري",
         "feature2": "استثمار أدنى منخفض"
       },
       "vip5": {
-        "feature1": "$10 عائد شهري",
+        "feature1": "$15 عائد شهري",
         "feature2": "دعم الأولوية"
       },
       "vip10": {
-        "feature1": "$300 عائد شهري",
+        "feature1": "$400 عائد شهري",
         "feature2": "فرص استثمار حصرية"
       },
       "minInvestment": "الحد الأدنى للاستثمار: {amount}",
@@ -139,7 +139,7 @@
     "DepositPage": {
     "deposit": "إيداع",
     "depositFunds": "إيداع الأموال",
-    "chooseInvestment": "قم بالإيداع عبر USDT TRC20 وابدأ في كسب الأرباح اليومية.",
+    "chooseInvestment": "قم بالإيداع عبر USDT Binace Smart Chain (BSC) وابدأ في كسب الأرباح اليومية.",
     "selectDepositLevel": "اختر مستوى الإيداع",
     "chooseLevel": "اختر مستوى",
     "dailyProfit": "الأرباح اليومية",
@@ -150,7 +150,10 @@
     "unexpectedError": "حدث خطأ غير متوقع.",
     "processing": "جاري المعالجة...",
     "initiateDeposit": "ابدأ الإيداع",
-    "disclaimer": "يرجى التأكد من صحة عنوان المحفظة قبل الإرسال."
+    "disclaimer": "يرجى التأكد من صحة عنوان المحفظة قبل الإرسال.",
+    "waitingForConfirmation": "في انتظار التأكيد...",
+    "backToDashboard": "العودة إلى لوحة التحكم",
+    "refreshStatus": "تحديث الحالة"
    },
         "DepositErrorReasons": {
         "depositError": "خطأ في الإيداع",
@@ -179,9 +182,9 @@
           "timeRemaining": "الوقت المتبقي",
           "timeLimitNotice": "يجب إكمال الدفع خلال 30 دقيقة",
           "depositAddress": "عنوان الإيداع",
-          "usdtTrc20Address": "عنوان USDT TRC20",
+          "usdtTrc20Address": "عنوان USDT BSC",
           "copySuccess": "تم النسخ إلى الحافظة!",
-          "onlySendUsdt": "يرجى إرسال USDT (TRC20) فقط إلى هذا العنوان. إرسال عملات أخرى قد يؤدي إلى فقدانها بشكل دائم.",
+          "onlySendUsdt": "يرجى إرسال USDT (BSC) فقط إلى هذا العنوان. إرسال عملات أخرى قد يؤدي إلى فقدانها بشكل دائم.",
           "importantNotice": "تنبيه هام",
           "importantDetails": "• الإيداعات صالحة فقط ضمن الإطار الزمني المحدد بـ30 دقيقة\n• بعد 30 دقيقة، ستحتاج إلى بدء إيداع جديد\n• تأكد من إرسال المبلغ المحدد لإكمال العملية",
           "verifyDeposit": "تحقق من الإيداع"
@@ -328,10 +331,10 @@
                   "form": {
                     "amountLabel": "مبلغ السحب",
                     "amountPlaceholder": "أدخل المبلغ",
-                    "walletPlaceholder": "أدخل عنوان محفظة USDT Smart Chain BEP20",
+                    "walletPlaceholder": "أدخل عنوان محفظة USDT BSC",
                     "loading": "جاري التحميل...",
                     "submitButton": "سحب الأموال",
-                    "walletLabel": "عنوان محفظة USDT Smart Chain BEP20"
+                    "walletLabel": "عنوان محفظة USDT Binace Smart Chain BSC"
 
 
                   },
@@ -373,10 +376,10 @@
       "investmentLimits": {
         "title": "حدود الاستثمار",
         "content": [
-          "الحد الأدنى للاستثمار: 50 دولار",
+          "الحد الأدنى للاستثمار: 80 دولار",
           "الحد الأقصى للاستثمار: 15,000 دولار لكل معاملة",
-          "حد الربح اليومي: 300 دولار",
-          "حد الاستثمار الشهري: 9,300 دولار"
+          "حد الربح اليومي: 450 دولار",
+          "حد الاستثمار الشهري: 13,500 دولار"
         ]
       },
       "riskManagement": {

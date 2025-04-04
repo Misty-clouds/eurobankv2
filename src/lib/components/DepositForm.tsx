@@ -22,7 +22,7 @@ export default function DepositPage() {
   const pathname = usePathname()
 
   const depositLevels = [
-    { label: "Level 1: $80", value: 80, dailyProfit: 2 },
+    { label: "Level 1: $10", value: 10, dailyProfit: 2 },
     { label: "Level 2: $100", value: 100, dailyProfit: 3 },
     { label: "Level 3: $200", value: 200, dailyProfit: 6 },
     { label: "Level 4: $400", value: 400, dailyProfit: 8 },
@@ -34,7 +34,7 @@ export default function DepositPage() {
     { label: "Level 10: $15,000", value: 15000, dailyProfit: 450 },
   ]
 
-  const currencies = ["BTC", "ETH", "USDT", "USDC", "LTC", "DOGE", "XRP", "TRX"]
+  const currencies = [ "USDT"]
 
   // Update the initiateDeposit function to handle the NOWPayments response format
   const initiateDeposit = async (e: React.FormEvent) => {
@@ -147,7 +147,6 @@ export default function DepositPage() {
             {/* Currency Selection */}
             <div>
               <label htmlFor="currency" className="block text-lg font-semibold text-primary mb-4">
-                {t("selectCurrency")}
               </label>
               <select
                 id="currency"

@@ -24,6 +24,12 @@ import dynamic from 'next/dynamic';
 const Loader = dynamic(() => import('@/lib/components/loader/loading'), { ssr: false });
 
 
+function  dapo (){
+  return(
+    <>div</>
+  )
+}
+
 const EurobankDashboard = () => {
   const t = useTranslations('EurobankDashboard'); // Using translations
   const [userData, setUserData] = useState({

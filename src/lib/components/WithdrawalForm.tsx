@@ -9,8 +9,7 @@ import BottomNav from '@/lib/components/BottomNav';
 import { useTranslations } from 'next-intl';
 import { createClient } from '@/utils/supabase/client';
 
-
-// Zod schema for TRC20 USDT wallet address validation
+// Zod schema for BSC USDT wallet address validation
 const BSCUSDTAddressSchema = z.string().regex(
   /^0x[a-fA-F0-9]{40}$/,
   { message: 'Invalid BSC USDT wallet address' }

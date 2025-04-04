@@ -35,6 +35,7 @@ export async function POST(request: Request) {
     const paymentData = {
       price_amount: amount,
       price_currency: "usd", 
+      pay_currency: "usdtbsc",
       order_id: `DEP-${user_id}-${Date.now()}`,
       order_description: `Deposit of $${amount}`,
       ipn_callback_url: IPN_CALLBACK_URL,
