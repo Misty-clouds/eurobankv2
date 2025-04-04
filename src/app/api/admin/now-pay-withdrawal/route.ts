@@ -2,7 +2,7 @@ import { NextResponse,NextRequest } from "next/server";
 
 
 
-export default function POST(request:NextRequest) {
+export async function POST(request:NextRequest) {
   console.log("POST request received");
   try {
     const body = request.json();
