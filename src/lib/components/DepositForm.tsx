@@ -22,7 +22,7 @@ export default function DepositPage() {
   const pathname = usePathname()
 
   const depositLevels = [
-    { label: "Level 1: $10", value: 10, dailyProfit: 2 },
+    { label: "Level 1: $80", value: 80, dailyProfit: 2 },
     { label: "Level 2: $100", value: 100, dailyProfit: 3 },
     { label: "Level 3: $200", value: 200, dailyProfit: 6 },
     { label: "Level 4: $400", value: 400, dailyProfit: 8 },
