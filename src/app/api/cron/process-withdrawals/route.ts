@@ -125,7 +125,7 @@ export async function GET() {
 
         // Extract payment ID from response - structure may vary
         const paymentId =
-          result.id || (result.data && result.data[i] ? result.data[i].id : null) || `NP-${Date.now()}-${withdrawal.id}`
+          result.withdrawals[0]?.id 
 
         // Update withdrawal status in Supabase
         const { error: updateError } = await supabase
