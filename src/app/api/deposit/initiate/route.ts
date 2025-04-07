@@ -18,13 +18,6 @@ export async function POST(request: Request) {
     const localePrefix = locale ? `/${locale}` : ""
 
 
-    //                                  Real API  CAllBACK URLs
-    
-
-    // const CALLBACK_URL = `${process.env.NEXT_PUBLIC_APP_URL}${localePrefix}/deposit/success`
-    // const CANCEL_URL = `${process.env.NEXT_PUBLIC_APP_URL}${localePrefix}/deposit/cancel`
-    // const IPN_CALLBACK_URL = `${process.env.NEXT_PUBLIC_APP_URL}/api/deposit/webhook`
-
 
     const CALLBACK_URL = `${process.env.NEXT_PUBLIC_APP_URL_TEST}${localePrefix}/deposit/success`
     const CANCEL_URL = `${process.env.NEXT_PUBLIC_APP_URL_TEST}${localePrefix}/deposit/cancel`
@@ -45,7 +38,7 @@ export async function POST(request: Request) {
 
     console.log("Sending payment request to NOWPayments:", paymentData)
 
-    const response = await axios.post(`${NOWPAYMENTS_API_URL}/invoice`, paymentData, {
+    const response = await axios.post(`${NOWPAYMENTS_API_URL}/payment`, paymentData, {
       headers: {
         "x-api-key": NOWPAYMENTS_API_KEY,
         "Content-Type": "application/json",
@@ -54,14 +47,19 @@ export async function POST(request: Request) {
 
     console.log("NOWPayments API response:", response.data)
 
-    if (!response.data || !response.data.id) {
+    if (!response.data ) {
       console.error("NOWPayments API error:", response.data)
       return NextResponse.json({ error: "Failed to create payment" }, { status: 500 })
     }
 
     const paymentId = response.data.order_id
     const paymentUrl = response.data.invoice_url
-    const expiresAt = new Date(Date.now() + 60 * 60 * 1000) // 1 hour from now
+    const paymentWallet = response.data.pay_address
+    const nowpaymentsId = response.data.payment_id
+    const expiresAt=response.data.expiration_estimate_date
+
+  
+
 
     // Store payment information in database including locale
     const { data: depositData, error: depositError } = await supabase
@@ -71,10 +69,11 @@ export async function POST(request: Request) {
         amount,
         payment_id: paymentId,
         currency: currency || "USDT", // Default to USDT if not provided
-        status: "pending",
-        expires_at: expiresAt.toISOString(),
+        status: "",
         locale: locale || "ar", // Store locale with deposit
-        wallet_address:"nowPaymentsMethod",
+        wallet_address: paymentWallet,
+        nowpayments_id: nowpaymentsId,
+        expires_at:expiresAt,
       })
       .select()
       .single()

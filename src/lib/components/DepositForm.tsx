@@ -70,19 +70,20 @@ export default function DepositPage() {
       })
 
       const data = await response.json()
+      console.log('data from initiate api call',data)
 
-      if (response.ok && data.paymentUrl) {
+      if (response.ok && data.success) {
         // Store payment ID, locale, and additional data in session for later verification
         sessionStorage.setItem("paymentId", data.paymentId)
         sessionStorage.setItem("paymentLocale", locale)
 
-        // Store additional payment details if available
-        if (data.nowPaymentsData) {
-          sessionStorage.setItem("paymentDetails", JSON.stringify(data.nowPaymentsData))
-        }
+       
 
-        // Redirect to NOWPayments checkout page
-        window.location.href = data.paymentUrl
+        // // Redirect to NOWPayments checkout page
+        // window.location.href = data.paymentUrl
+        router.push(`/deposit/payment`)
+
+
       } else {
         sessionStorage.setItem("depositErrorMessage", data.message || t("depositFailed"))
         router.push("/depositerror")

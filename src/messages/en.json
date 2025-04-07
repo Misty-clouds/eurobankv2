@@ -8,7 +8,7 @@
       "signin": "Sign In"
     },
 
-      "faqs": {
+    "faqs": {
       "title": "Frequently Asked Questions",
       "question1": "What is EuroBank?",
       "answer1": "EuroBank is a cryptocurrency investment platform that allows you to invest in a variety of digital assets with competitive returns.",
@@ -75,20 +75,20 @@
       "copyright": "© 2024 EuroBank. All rights reserved."
     }
   },
-  "SignupPage":{
-      "title": "Sign Up to Eurobank",
-      "emailLabel": "Email",
-      "emailPlaceholder": "Enter your email",
-      "passwordLabel": "Password",
-      "passwordPlaceholder": "Create a strong password",
-      "referralIdLabel": "Referral ID (optional)",
-      "referralIdPlaceholder": "Enter referral ID",
-      "signupButton": "Sign Up",
-      "alreadyHaveAccount": "Already have an account? Sign In",
-      "forgotPassword": "Forgot Password?",
-      "loading":"loading...."   
+  "SignupPage": {
+    "title": "Sign Up to Eurobank",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter your email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Create a strong password",
+    "referralIdLabel": "Referral ID (optional)",
+    "referralIdPlaceholder": "Enter referral ID",
+    "signupButton": "Sign Up",
+    "alreadyHaveAccount": "Already have an account? Sign In",
+    "forgotPassword": "Forgot Password?",
+    "loading": "loading...."
   },
-  "auth":{
+  "auth": {
     "loginTitle": "Login",
     "emailLabel": "Email",
     "emailPlaceholder": "Enter your email",
@@ -98,342 +98,378 @@
     "signupLink": "Don't have an account? Sign Up",
     "forgotPasswordLink": "Forgot Password?",
     "loginSuccess": "Login successful!",
-    "loading":"Loading..."
-
+    "loading": "Loading..."
   },
-  "ForgotPasswordPage":{
+  "ForgotPasswordPage": {
     "title": "Forgot Password",
-  "emailLabel": "Email Address",
-  "emailPlaceholder": "Enter your email",
-  "resetButton": "Send Reset Link",
-  "loading": "Sending...",
-  "error": "An error occurred:",
-  "successMessage": "Password reset email sent successfully! Please check your inbox.",
-  "backToLogin": "Back to Login",
-  "signupLink": "Create an Account"
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email",
+    "resetButton": "Send Reset Link",
+    "loading": "Sending...",
+    "error": "An error occurred:",
+    "successMessage": "Password reset email sent successfully! Please check your inbox.",
+    "backToLogin": "Back to Login",
+    "signupLink": "Create an Account"
   },
-    "EurobankDashboard": {
-      "title": "Eurobank",
-      "userPlaceholder": "User",
-      "fetchError": "Failed to fetch user data.",
-      "loadError": "Unable to load data. Please try again later.",
-      "loadingUser": "Loading user information...",
-      "loadingDashboard": "Loading dashboard...",
-      "deposit": "Deposit",
-      "withdraw": "Withdraw",
-      "invite": "Invite",
-      "rules": "Rules",
-      "levels": "Levels",
-      "anouncement": "Announcement",
-      "dailyEarning": "Daily Earnings",
-      "referralProfit": "Referral Profit",
-      "totalProfit": "Total Profit",
-      "totalBalance": "Total Balance",
-      "welcome": "Welcome, {name}",
-      "Deposit": "Deposit",
-      "Withdraw": "Withdraw",
-      "InviteFriends": "Invite Friends",
-      "ChatSupport": "Chat Support",
-      "Rules": "Rules",
-      "Anouncement": "Announcement"
-    },    
-      "DepositPage": {
-        "deposit": "Deposit",
-        "depositFunds": "Deposit Funds",
-        "chooseInvestment": "Deposit via USDT Binance Smart Chain (BSC), Start earning daily profits.",
-        "selectDepositLevel": "Select Deposit Level",
-        "chooseLevel": "Choose a level",
-        "dailyProfit": "Daily Profit",
-        "walletAddress": "Enter Wallet Address From Which Money Is Sent",
-        "pleaseSelectLevel": "Please select a deposit level.",
-        "pleaseEnterWalletAddress": "Please enter a wallet address.",
-        "depositFailed": "Deposit failed. Please try again.",
-        "unexpectedError": "An unexpected error occurred.",
-        "processing": "Processing...",
-        "initiateDeposit": "Initiate Deposit",
-        "disclaimer": "Please ensure the wallet address is correct before submitting.",
-        "waitingForConfirmation": "Waiting for confirmation...",
-        "backToDashboard": "Back to Dashboard",
-        "refreshStatus": "Refresh Status"
+  "EurobankDashboard": {
+    "title": "Eurobank",
+    "userPlaceholder": "User",
+    "fetchError": "Failed to fetch user data.",
+    "loadError": "Unable to load data. Please try again later.",
+    "loadingUser": "Loading user information...",
+    "loadingDashboard": "Loading dashboard...",
+    "deposit": "Deposit",
+    "withdraw": "Withdraw",
+    "invite": "Invite",
+    "rules": "Rules",
+    "levels": "Levels",
+    "anouncement": "Announcement",
+    "dailyEarning": "Daily Earnings",
+    "referralProfit": "Referral Profit",
+    "totalProfit": "Total Profit",
+    "totalBalance": "Total Balance",
+    "welcome": "Welcome, {name}",
+    "Deposit": "Deposit",
+    "Withdraw": "Withdraw",
+    "InviteFriends": "Invite Friends",
+    "ChatSupport": "Chat Support",
+    "Rules": "Rules",
+    "Anouncement": "Announcement"
+  },
+  "DepositPage": {
+    "deposit": "Deposit",
+    "depositFunds": "Deposit Funds",
+    "chooseInvestment": "Deposit via USDT Binance Smart Chain (BSC), Start earning daily profits.",
+    "selectDepositLevel": "Select Deposit Level",
+    "chooseLevel": "Choose a level",
+    "dailyProfit": "Daily Profit",
+    "walletAddress": "Enter Wallet Address From Which Money Is Sent",
+    "pleaseSelectLevel": "Please select a deposit level.",
+    "pleaseEnterWalletAddress": "Please enter a wallet address.",
+    "depositFailed": "Deposit failed. Please try again.",
+    "unexpectedError": "An unexpected error occurred.",
+    "processing": "Processing...",
+    "initiateDeposit": "Initiate Deposit",
+    "disclaimer": "Please ensure the wallet address is correct before submitting.",
+    "waitingForConfirmation": "Waiting for confirmation...",
+    "backToDashboard": "Back to Dashboard",
+    "refreshStatus": "Refresh Status"
+  },
+  "DepositErrorReasons": {
+    "depositError": "Deposit Error",
+    "authenticationIssues": "Authentication Issues",
+    "authReason1": "Incorrect or expired login credentials",
+    "authReason2": "Account temporarily suspended",
+    "authReason3": "Two-factor authentication issues",
+    "authReason4": "Account verification not completed",
+    "networkIssues": "Network and Connection Problems",
+    "networkReason1": "Unstable internet connection",
+    "networkReason2": "Temporary server unavailability",
+    "networkReason3": "Firewall or security settings blocking connection",
+    "networkReason4": "VPN or proxy interference",
+    "transactionConflicts": "Transaction State Conflicts",
+    "transactionReason1": "Pending deposit already in progress",
+    "transactionReason2": "Recent transaction not yet processed",
+    "transactionReason3": "Conflicting transaction in system",
+    "transactionReason4": "Deposit queue is full",
+    "helpMessage": "If you continue experiencing issues, please contact our support team with the specific error details.",
+    "contactSupport": "Contact Support"
+  },
+
+  "DepositInfo": {
+    "depositInfo": "Deposit Information",
+    "depositSuccess": "Deposit Initiated Successfully",
+    "depositProcessing": "Your deposit is being processed. Please complete the payment within the time frame.",
+    "timeRemaining": "Time Remaining",
+    "timeLimitNotice": "Payment must be completed within 30 minutes",
+    "depositAddress": "Deposit Address",
+    "usdtTrc20Address": "USDT BSC Address",
+    "copySuccess": "Copied to clipboard!",
+    "onlySendUsdt": "Only send USDT (BSC) to this address. Sending other cryptocurrencies may result in permanent loss.",
+    "importantNotice": "Important Notice",
+    "importantDetails": "• Deposits are only valid within the 30-minute time frame\n• After 30 minutes, you will need to initiate a new deposit\n• Ensure you send the exact amount to complete the transaction",
+    "verifyDeposit": "Verify Deposit"
+  },
+
+  "DepositStatus": {
+    "depositStatus": "Deposit Status",
+    "yourDeposits": "Your Deposits",
+    "trackDeposits": "Track the status of all your deposit transactions",
+    "loadingDeposits": "Loading deposits...",
+    "error": "Error",
+    "noDepositsFound": "No deposits found.",
+    "initiateDeposit": "Initiate Deposit",
+    "processing": "Processing...",
+    "amount": "Amount",
+    "status": "Status",
+    "expiresAt": "Expires At",
+    "transaction": "Transaction",
+    "verifyTransaction": "Confirm Transaction"
+  },
+  "layout": {
+    "notAuthenticated": "User not authenticated",
+    "login": "Login"
+  },
+  "faq": {
+    "title": "FAQ",
+    "searchPlaceholder": "Search FAQs...",
+    "sections": {
+      "accountManagement": {
+        "title": "Account Management",
+        "items": {
+          "createAccount": {
+            "question": "How do I create an account?",
+            "answer": "To create an account, click on 'Sign Up'..."
+          },
+          "resetPassword": {
+            "question": "How can I reset my password?",
+            "answer": "Go to the login page and click on 'Forgot Password'..."
+          }
+        }
       },
-      "DepositErrorReasons": {
-          "depositError": "Deposit Error",
-          "authenticationIssues": "Authentication Issues",
-          "authReason1": "Incorrect or expired login credentials",
-          "authReason2": "Account temporarily suspended",
-          "authReason3": "Two-factor authentication issues",
-          "authReason4": "Account verification not completed",
-          "networkIssues": "Network and Connection Problems",
-          "networkReason1": "Unstable internet connection",
-          "networkReason2": "Temporary server unavailability",
-          "networkReason3": "Firewall or security settings blocking connection",
-          "networkReason4": "VPN or proxy interference",
-          "transactionConflicts": "Transaction State Conflicts",
-          "transactionReason1": "Pending deposit already in progress",
-          "transactionReason2": "Recent transaction not yet processed",
-          "transactionReason3": "Conflicting transaction in system",
-          "transactionReason4": "Deposit queue is full",
-          "helpMessage": "If you continue experiencing issues, please contact our support team with the specific error details.",
-          "contactSupport": "Contact Support"
-        },
+      "investment": {
+        "title": "Investment",
+        "items": {
+          "investmentPlans": {
+            "question": "What investment plans are available?",
+            "answer": "We offer a wide range of investment plans with different levels to choose from. Browse our levels on the home page to understand better."
+          }
+        }
+      },
+      "security": {
+        "title": "Security",
+        "items": {
+          "accountSecurity": {
+            "question": "How secure is my account?",
+            "answer": "We use a robust authentication system to validate and verify our users' identity and ensure a secure application."
+          }
+        }
+      }
+    }
+  },
+  "support": {
+    "title": "Support",
+    "overview": {
+      "title": "Customer Support",
+      "description": "We're here to help you 24/7. Choose your preferred support channel."
+    },
+    "channels": {
+      "telegram": {
+        "label": "Telegram Support",
+        "button": "Join Telegram Support",
+        "link": "https://t.me/eurrobanks"
+      },
+      "liveChat": {
+        "label": "Live Chat"
+      },
+      "faq": {
+        "label": "FAQ"
+      }
+    },
+    "resources": {
+      "title": "Support Resources",
+      "userGuide": {
+        "label": "User Guide",
+        "value": "Comprehensive Help"
+      },
+      "supportHours": {
+        "label": "Support Hours",
+        "value": "24/7 Available"
+      }
+    }
+  },
 
-          "DepositInfo": {
-            "depositInfo": "Deposit Information",
-            "depositSuccess": "Deposit Initiated Successfully",
-            "depositProcessing": "Your deposit is being processed. Please complete the payment within the time frame.",
-            "timeRemaining": "Time Remaining",
-            "timeLimitNotice": "Payment must be completed within 30 minutes",
-            "depositAddress": "Deposit Address",
-            "usdtTrc20Address": "USDT BSC Address",
-            "copySuccess": "Copied to clipboard!",
-            "onlySendUsdt": "Only send USDT (BSC) to this address. Sending other cryptocurrencies may result in permanent loss.",
-            "importantNotice": "Important Notice",
-            "importantDetails": "• Deposits are only valid within the 30-minute time frame\n• After 30 minutes, you will need to initiate a new deposit\n• Ensure you send the exact amount to complete the transaction",
-            "verifyDeposit": "Verify Deposit"
-          },
-          
-            "DepositStatus": {
-              "depositStatus": "Deposit Status",
-              "yourDeposits": "Your Deposits",
-              "trackDeposits": "Track the status of all your deposit transactions",
-              "loadingDeposits": "Loading deposits...",
-              "error": "Error",
-              "noDepositsFound": "No deposits found.",
-              "initiateDeposit": "Initiate Deposit",
-              "processing": "Processing...",
-              "amount": "Amount",
-              "status": "Status",
-              "expiresAt": "Expires At",
-              "transaction": "Transaction",
-              "verifyTransaction": "Confirm Transaction"
-            
-          },
-          "layout":{
-            "notAuthenticated": "User not authenticated",
-            "login": "Login"
-          },
-            "faq": {
-              "title": "FAQ",
-              "searchPlaceholder": "Search FAQs...",
-              "sections": {
-                "accountManagement": {
-                  "title": "Account Management",
-                  "items": {
-                    "createAccount": {
-                      "question": "How do I create an account?",
-                      "answer": "To create an account, click on 'Sign Up'..."
-                    },
-                    "resetPassword": {
-                      "question": "How can I reset my password?",
-                      "answer": "Go to the login page and click on 'Forgot Password'..."
-                    }
-                  }
-                },
-                "investment": {
-                  "title": "Investment",
-                  "items": {
-                    "investmentPlans": {
-                      "question": "What investment plans are available?",
-                      "answer": "We offer a wide range of investment plans with different levels to choose from. Browse our levels on the home page to understand better."
-                    }
-                  }
-                },
-                "security": {
-                  "title": "Security",
-                  "items": {
-                    "accountSecurity": {
-                      "question": "How secure is my account?",
-                      "answer": "We use a robust authentication system to validate and verify our users' identity and ensure a secure application."
-                    }
-                  }
-                }
-              }
-            },"support":
-            {
-              "title": "Support",
-              "overview": {
-                "title": "Customer Support",
-                "description": "We're here to help you 24/7. Choose your preferred support channel."
-              },
-              "channels": {
-                "telegram": {
-                  "label": "Telegram Support",
-                  "button": "Join Telegram Support",
-                  "link": "https://t.me/eurrobanks"
-                },
-                "liveChat": {
-                  "label": "Live Chat"
-                },
-                "faq": {
-                  "label": "FAQ"
-                }
-              },
-              "resources": {
-                "title": "Support Resources",
-                "userGuide": {
-                  "label": "User Guide",
-                  "value": "Comprehensive Help"
-                },
-                "supportHours": {
-                  "label": "Support Hours",
-                  "value": "24/7 Available"
-                }
-              }
-            },
-            
-            
-              "ProfilePage": {
-                "profile": "Profile",
-                "fetchError": "An error occurred while fetching user data.",
-                "unknownStatus": "Unknown",
-                "memberSince": "Member since {date}",
-                "contactInformation": "Contact Information",
-                "email": "Email",
-                "phone": "Phone",
-                "referralCode": "Referral Code",
-                "security": "Security",
-                "settings": "Settings",
-                "logout": "Logout",
-                "copied": "Copied to clipboard!",
-                "level": "Level",
-                "referrals": "Referrals",
-                "status": "Account Status"
-              }
-              ,
-                "WithdrawalStatus": {
-                  "header": "Withdrawal Status",
-                  "overviewTitle": "Your Withdrawals",
-                  "overviewSubtitle": "Track the status of all your withdrawal requests",
-                  "loading": "Loading...",
-                  "fetchError": "Failed to fetch withdrawals: {statusText}",
-                  "unknownError": "An unknown error occurred",
-                  "consoleError": "Fetch error:",
-                  "loadError": "Failed to load withdrawals. Please try again.",
-                  "noRecords": "You have no withdrawal records.",
-                  "amount": "Amount",
-                  "status": "Status",
-                  "reason": "Reason",
-                  "notApplicable": "N/A",
-                  "withdrawalButton": "Initiate Withdrawal",
-                  "statuses": {
-                    "pending": "Pending",
-                    "delayed": "Delayed",
-                    "canceled": "Canceled",
-                    "completed": "Completed"
-                  }
-                },
-                  "WithdrawalForm": {
-                    "header": {
-                      "title": "Withdrawal"
-                    },
-                    "overview": {
-                      "title": "Make a Withdrawal",
-                      "balance": "Available balance: ${balance}"
-                    },
-                    "form": {
-                      "amountLabel": "Withdrawal Amount",
-                      "amountPlaceholder": "Enter amount",
-                      "walletLabel": "USDT  Smart Chain BSC Wallet Address",
-                      "walletPlaceholder": "Enter USDT  BSC wallet address",
-                      "loading": "Loading...",
-                      "submitButton": "Withdraw Funds"
-                    },
-                    "errors": {
-                      "unauthenticated": "User not authenticated",
-                      "invalidAmount": "Invalid withdrawal amount",
-                      "exceedsBalance": "Amount is greater than total balance",
-                      "invalidWalletAddress": "Invalid USDT BSC wallet address",
-                      "unexpected": "An unexpected error occurred"
-                    },
-                    "success": {
-                      "withdrawalPlaced": "Withdrawal request placed successfully!"
-                    }
-                  },
-                  
-                    "LevelsPage": {
-                      "title": "Investment Levels",
-                      "schemeTitle": "Investment Scheme",
-                      "schemeDescription": "Choose your investment level to start earning daily profits",
-                      "level": "Level {level}",
-                      "dailyProfit": "Daily Profit",
-                      "requiredDeposit": "Required Deposit"
-                    
-                  }, "rules": {
-                    "pageTitle": "Platform Rules",
-                    "backToDashboard": "Back to Dashboard",
-                    "header": {
-                      "title": "Rules & Regulations",
-                      "subtitle": "Comprehensive guidelines to ensure a safe, transparent, and compliant investment experience"
-                    },
-                    "navigation": "Navigation",
-                    "sections": {
-                      "overview": {
-                        "title": "Platform Overview",
-                        "content": [
-                          "Welcome to our cryptocurrency investment platform, designed to provide a secure and transparent investment experience.",
-                          "Our platform adheres to strict regulatory standards and prioritizes user safety and financial integrity."
-                        ]
-                      },
-                      "investmentLimits": {
-                        "title": "Investment Limits",
-                        "content": [
-                          "Minimum Investment: $80",
-                          "Maximum Investment: $15,000 per transaction",
-                          "Daily Profit Limit: $450",
-                          "Monthly Investment Limit: $13500"
-                        ]
-                      },
-                      "riskManagement": {
-                        "title": "Risk Management",
-                        "content": [
-                          "All investments carry inherent risks. Past performance does not guarantee future results.",
-                          "We recommend diversifying your investment portfolio.",
-                          "Never invest more than you can afford to lose.",
-                          "Conduct thorough research before making any investment decisions."
-                        ]
-                      },
-                      "securityProtocols": {
-                        "title": "Security Protocols",
-                        "content": [
-                          "Authentication is mandatory",
-                          "All funds are stored in Secure wallets",
-                          "Regular security audits are conducted",
-                          "End-to-end encryption for all transactions"
-                        ]
-                      },
-                      "withdrawalRules": {
-                        "title": "Withdrawal Rules",
-                        "content": [
-                          "Minimum Withdrawal: $15 ",
-                          "Withdrawal Processing Time: 1-3 Business Days",
-                          "Withdrawals are subject to verification"
-                        ]
-                      },
-                      "compliance": {
-                        "title": "Legal Compliance",
-                        "content": [
-                          "Full compliance with international financial regulations",
-                          "Know Your Customer (KYC) procedures required",
-                          "Anti-Money Laundering (AML) policies strictly enforced",
-                          "Transparent reporting and tax documentation"
-                        ]
-                      }
-                    },
-                    "disclaimer": {
-                      "title": "Disclaimer",
-                      "content": "Cryptocurrency investments are subject to market risks. The value of investments can go up or down, and you may not get back the amount you invested. Past performance is not a guarantee of future results."
-                    }
-                  },
-                    "faqs": {
-                    "title": "Frequently Asked Questions",
-                    "question1": "What is EuroBank?",
-                    "answer1": "EuroBank is a cryptocurrency investment platform that allows you to invest in a variety of digital assets with competitive returns.",
-                    "question2": "How do I get started with EuroBank?",
-                    "answer2": "To get started, simply create an account, verify your identity, deposit funds, and start investing in cryptocurrency projects with high potential.",
-                    "question3": "Is my investment secure with EuroBank?",
-                    "answer3": "Yes, we take the security of your investments seriously. Our platform uses advanced encryption, multi-factor authentication, and insurance policies to ensure the safety of your funds."
-                  }
-                    
-                  
+  "ProfilePage": {
+    "profile": "Profile",
+    "fetchError": "An error occurred while fetching user data.",
+    "unknownStatus": "Unknown",
+    "memberSince": "Member since {date}",
+    "contactInformation": "Contact Information",
+    "email": "Email",
+    "phone": "Phone",
+    "referralCode": "Referral Code",
+    "security": "Security",
+    "settings": "Settings",
+    "logout": "Logout",
+    "copied": "Copied to clipboard!",
+    "level": "Level",
+    "referrals": "Referrals",
+    "status": "Account Status"
+  },
+  "WithdrawalStatus": {
+    "header": "Withdrawal Status",
+    "overviewTitle": "Your Withdrawals",
+    "overviewSubtitle": "Track the status of all your withdrawal requests",
+    "loading": "Loading...",
+    "fetchError": "Failed to fetch withdrawals: {statusText}",
+    "unknownError": "An unknown error occurred",
+    "consoleError": "Fetch error:",
+    "loadError": "Failed to load withdrawals. Please try again.",
+    "noRecords": "You have no withdrawal records.",
+    "amount": "Amount",
+    "status": "Status",
+    "reason": "Reason",
+    "notApplicable": "N/A",
+    "withdrawalButton": "Initiate Withdrawal",
+    "statuses": {
+      "pending": "Pending",
+      "delayed": "Delayed",
+      "canceled": "Canceled",
+      "completed": "Completed"
+    }
+  },
+  "WithdrawalForm": {
+    "header": {
+      "title": "Withdrawal"
+    },
+    "overview": {
+      "title": "Make a Withdrawal",
+      "balance": "Available balance: ${balance}"
+    },
+    "form": {
+      "amountLabel": "Withdrawal Amount",
+      "amountPlaceholder": "Enter amount",
+      "walletLabel": "USDT  Smart Chain BSC Wallet Address",
+      "walletPlaceholder": "Enter USDT  BSC wallet address",
+      "loading": "Loading...",
+      "submitButton": "Withdraw Funds"
+    },
+    "errors": {
+      "unauthenticated": "User not authenticated",
+      "invalidAmount": "Invalid withdrawal amount",
+      "exceedsBalance": "Amount is greater than total balance",
+      "invalidWalletAddress": "Invalid USDT BSC wallet address",
+      "unexpected": "An unexpected error occurred"
+    },
+    "success": {
+      "withdrawalPlaced": "Withdrawal request placed successfully!"
+    }
+  },
 
-                }
+  "LevelsPage": {
+    "title": "Investment Levels",
+    "schemeTitle": "Investment Scheme",
+    "schemeDescription": "Choose your investment level to start earning daily profits",
+    "level": "Level {level}",
+    "dailyProfit": "Daily Profit",
+    "requiredDeposit": "Required Deposit"
+  },
+  "rules": {
+    "pageTitle": "Platform Rules",
+    "backToDashboard": "Back to Dashboard",
+    "header": {
+      "title": "Rules & Regulations",
+      "subtitle": "Comprehensive guidelines to ensure a safe, transparent, and compliant investment experience"
+    },
+    "navigation": "Navigation",
+    "sections": {
+      "overview": {
+        "title": "Platform Overview",
+        "content": [
+          "Welcome to our cryptocurrency investment platform, designed to provide a secure and transparent investment experience.",
+          "Our platform adheres to strict regulatory standards and prioritizes user safety and financial integrity."
+        ]
+      },
+      "investmentLimits": {
+        "title": "Investment Limits",
+        "content": [
+          "Minimum Investment: $80",
+          "Maximum Investment: $15,000 per transaction",
+          "Daily Profit Limit: $450",
+          "Monthly Investment Limit: $13500"
+        ]
+      },
+      "riskManagement": {
+        "title": "Risk Management",
+        "content": [
+          "All investments carry inherent risks. Past performance does not guarantee future results.",
+          "We recommend diversifying your investment portfolio.",
+          "Never invest more than you can afford to lose.",
+          "Conduct thorough research before making any investment decisions."
+        ]
+      },
+      "securityProtocols": {
+        "title": "Security Protocols",
+        "content": [
+          "Authentication is mandatory",
+          "All funds are stored in Secure wallets",
+          "Regular security audits are conducted",
+          "End-to-end encryption for all transactions"
+        ]
+      },
+      "withdrawalRules": {
+        "title": "Withdrawal Rules",
+        "content": [
+          "Minimum Withdrawal: $15 ",
+          "Withdrawal Processing Time: 1-3 Business Days",
+          "Withdrawals are subject to verification"
+        ]
+      },
+      "compliance": {
+        "title": "Legal Compliance",
+        "content": [
+          "Full compliance with international financial regulations",
+          "Know Your Customer (KYC) procedures required",
+          "Anti-Money Laundering (AML) policies strictly enforced",
+          "Transparent reporting and tax documentation"
+        ]
+      }
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "content": "Cryptocurrency investments are subject to market risks. The value of investments can go up or down, and you may not get back the amount you invested. Past performance is not a guarantee of future results."
+    }
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions",
+    "question1": "What is EuroBank?",
+    "answer1": "EuroBank is a cryptocurrency investment platform that allows you to invest in a variety of digital assets with competitive returns.",
+    "question2": "How do I get started with EuroBank?",
+    "answer2": "To get started, simply create an account, verify your identity, deposit funds, and start investing in cryptocurrency projects with high potential.",
+    "question3": "Is my investment secure with EuroBank?",
+    "answer3": "Yes, we take the security of your investments seriously. Our platform uses advanced encryption, multi-factor authentication, and insurance policies to ensure the safety of your funds."
+  },
+
+  "PaymentPage": {
+    "payment": "Payment",
+    "error": "Error",
+    "backToDeposit": "Back to Deposit",
+    "awaitingPayment": "Awaiting Payment",
+    "paymentExpired": "Payment Expired",
+    "paymentReceived": "Payment Received",
+    "timeRemaining": "Time Remaining",
+    "tryAgain": "Try Again",
+    "continue": "Continue",
+    "sendExactly": "Send Exactly",
+    "walletAddress": "Wallet Address",
+    "network": "Network",
+    "checkStatus": "Check Payment Status",
+    "checkingStatus": "Checking Status...",
+    "instructions": "Instructions",
+    "sendExactAmount": "Send the exact amount shown above.",
+    "confirmationTime": "Confirmation may take 10-30 minutes.",
+    "clickCheck": "Click 'Check Payment Status' after sending.",
+    "doNotClose": "Do not close this page until payment is confirmed.",
+    "copyAddress": "Copy Address",
+    "addressCopied": "Address Copied!",
+    "scanQrCode": "Scan QR Code with your wallet app",
+    "orSendManually": "Or send manually to the address below",
+    "paymentDetails": "Payment Details",
+    "amount": "Amount",
+    "currency": "Currency",
+    "orderID": "Order ID",
+    "createdAt": "Created At",
+    "expiresAt": "Expires At",
+    "paymentMethod": "Payment Method",
+    "paymentStatus": "Payment Status",
+    "pending": "Pending",
+    "completed": "Completed",
+    "expired": "Expired",
+    "failed": "Failed",
+    "unexpectedError": "An unexpected error occurred",
+    "paymentNotFound": "Payment information not found",
+    "invalidPaymentDetails": "Invalid payment details",
+    "errorFetchingDetails": "Error fetching payment details",
+    "paymentIdNotFound": "Payment ID not found"
+  }
+}

@@ -16,7 +16,7 @@
       "question3": "هل استثماري آمن مع يوروبنك؟",
       "answer3": "نعم، نحن نأخذ أمان استثماراتك على محمل الجد. تستخدم منصتنا التشفير المتقدم، والتحقق متعدد العوامل، والسياسات التأمينية لضمان أمان أموالك."
     },
-  
+
     "hero": {
       "title": {
         "part1": "مرحبًا بك في يوروبنك،",
@@ -75,7 +75,7 @@
       "copyright": "© 2024 يوروبنك. جميع الحقوق محفوظة."
     }
   },
-  "SignupPage":{
+  "SignupPage": {
     "title": "سجل في Eurobank",
     "emailLabel": "البريد الإلكتروني",
     "emailPlaceholder": "أدخل بريدك الإلكتروني",
@@ -87,7 +87,7 @@
     "alreadyHaveAccount": "هل لديك حساب؟ تسجيل الدخول",
     "forgotPassword": "هل نسيت كلمة المرور؟"
   },
-  "auth":{
+  "auth": {
     "loginTitle": "تسجيل الدخول",
     "emailLabel": "البريد الإلكتروني",
     "emailPlaceholder": "أدخل بريدك الإلكتروني",
@@ -97,9 +97,9 @@
     "signupLink": "ليس لديك حساب؟ سجل الآن",
     "forgotPasswordLink": "هل نسيت كلمة المرور؟",
     "loginSuccess": "تم تسجيل الدخول بنجاح!",
-    "loading":"جاري التحميل..."
+    "loading": "جاري التحميل..."
   },
-    
+
   "title": "نسيت كلمة المرور",
   "emailLabel": "البريد الإلكتروني",
   "emailPlaceholder": "أدخل بريدك الإلكتروني",
@@ -108,42 +108,40 @@
   "error": "حدث خطأ:",
   "successMessage": "تم إرسال رابط إعادة تعيين كلمة المرور بنجاح! يرجى التحقق من بريدك الوارد.",
   "backToLogin": "العودة إلى تسجيل الدخول",
-  "signupLink": "إنشاء حساب"
-  ,
-  
-    "EurobankDashboard": {
-      "title": "Eurobank",
-      "userPlaceholder": "المستخدم",
-      "fetchError": "فشل في جلب بيانات المستخدم.",
-      "loadError": "تعذر تحميل البيانات. يرجى المحاولة لاحقًا.",
-      "loadingUser": "جارٍ تحميل معلومات المستخدم...",
-      "loadingDashboard": "جارٍ تحميل لوحة التحكم...",
-      "deposit": "الإيداع",
-      "withdraw": "السحب",
-      "invite": "دعوة",
-      "rules": "القواعد",
-      "levels": "المستويات",
-      "anouncement": "الإعلان",
-      "dailyEarning": "الأرباح اليومية",
-      "referralProfit": "أرباح الإحالة",
-      "totalProfit": "إجمالي الأرباح",
-      "totalBalance": "إجمالي الرصيد",
-      "welcome": "مرحبًا، {name}",
-      "Deposit": "الإيداع",
-      "Withdraw": "السحب",
-      "InviteFriends": "دعوة الأصدقاء",
-      "ChatSupport": "الدعم الفني",
-      "Rules": "القواعد",
-      "Anouncement": "الإعلانات"
-    },
-    "DepositPage": {
+  "signupLink": "إنشاء حساب",
+  "EurobankDashboard": {
+    "title": "Eurobank",
+    "userPlaceholder": "المستخدم",
+    "fetchError": "فشل في جلب بيانات المستخدم.",
+    "loadError": "تعذر تحميل البيانات. يرجى المحاولة لاحقًا.",
+    "loadingUser": "جارٍ تحميل معلومات المستخدم...",
+    "loadingDashboard": "جارٍ تحميل لوحة التحكم...",
+    "deposit": "الإيداع",
+    "withdraw": "السحب",
+    "invite": "دعوة",
+    "rules": "القواعد",
+    "levels": "المستويات",
+    "anouncement": "الإعلان",
+    "dailyEarning": "الأرباح اليومية",
+    "referralProfit": "أرباح الإحالة",
+    "totalProfit": "إجمالي الأرباح",
+    "totalBalance": "إجمالي الرصيد",
+    "welcome": "مرحبًا، {name}",
+    "Deposit": "الإيداع",
+    "Withdraw": "السحب",
+    "InviteFriends": "دعوة الأصدقاء",
+    "ChatSupport": "الدعم الفني",
+    "Rules": "القواعد",
+    "Anouncement": "الإعلانات"
+  },
+  "DepositPage": {
     "deposit": "إيداع",
     "depositFunds": "إيداع الأموال",
     "chooseInvestment": "قم بالإيداع عبر USDT Binace Smart Chain (BSC) وابدأ في كسب الأرباح اليومية.",
     "selectDepositLevel": "اختر مستوى الإيداع",
     "chooseLevel": "اختر مستوى",
     "dailyProfit": "الأرباح اليومية",
-    "walletAddress":"أدخل عنوان المحفظة التي تم إرسال المال منها." ,
+    "walletAddress": "أدخل عنوان المحفظة التي تم إرسال المال منها.",
     "pleaseSelectLevel": "يرجى اختيار مستوى الإيداع.",
     "pleaseEnterWalletAddress": "يرجى إدخال عنوان المحفظة.",
     "depositFailed": "فشل الإيداع. يرجى المحاولة مرة أخرى.",
@@ -154,210 +152,208 @@
     "waitingForConfirmation": "في انتظار التأكيد...",
     "backToDashboard": "العودة إلى لوحة التحكم",
     "refreshStatus": "تحديث الحالة"
-   },
-        "DepositErrorReasons": {
-        "depositError": "خطأ في الإيداع",
-        "authenticationIssues": "مشكلات المصادقة",
-        "authReason1": "بيانات تسجيل الدخول غير صحيحة أو منتهية الصلاحية",
-        "authReason2": "تم تعليق الحساب مؤقتًا",
-        "authReason3": "مشكلات في المصادقة الثنائية",
-        "authReason4": "لم يكتمل التحقق من الحساب",
-        "networkIssues": "مشكلات الشبكة والاتصال",
-        "networkReason1": "اتصال إنترنت غير مستقر",
-        "networkReason2": "عدم توفر الخادم مؤقتًا",
-        "networkReason3": "إعدادات جدار الحماية أو الأمان تمنع الاتصال",
-        "networkReason4": "تداخل من الشبكات الخاصة الافتراضية أو الوكلاء",
-        "transactionConflicts": "تعارضات في حالة المعاملة",
-        "transactionReason1": "الإيداع المعلق قيد التقدم بالفعل",
-        "transactionReason2": "المعاملة الأخيرة لم تتم معالجتها بعد",
-        "transactionReason3": "تعارض في المعاملات داخل النظام",
-        "transactionReason4": "طابور الإيداع ممتلئ",
-        "helpMessage": "إذا استمرت المشكلة، يرجى الاتصال بفريق الدعم لدينا مع تفاصيل الخطأ المحددة.",
-        "contactSupport": "اتصل بالدعم"
-      },
-        "DepositInfo": {
-          "depositInfo": "معلومات الإيداع",
-          "depositSuccess": "تم بدء الإيداع بنجاح",
-          "depositProcessing": "يتم الآن معالجة إيداعك. يرجى إتمام الدفع ضمن الإطار الزمني المحدد.",
-          "timeRemaining": "الوقت المتبقي",
-          "timeLimitNotice": "يجب إكمال الدفع خلال 30 دقيقة",
-          "depositAddress": "عنوان الإيداع",
-          "usdtTrc20Address": "عنوان USDT BSC",
-          "copySuccess": "تم النسخ إلى الحافظة!",
-          "onlySendUsdt": "يرجى إرسال USDT (BSC) فقط إلى هذا العنوان. إرسال عملات أخرى قد يؤدي إلى فقدانها بشكل دائم.",
-          "importantNotice": "تنبيه هام",
-          "importantDetails": "• الإيداعات صالحة فقط ضمن الإطار الزمني المحدد بـ30 دقيقة\n• بعد 30 دقيقة، ستحتاج إلى بدء إيداع جديد\n• تأكد من إرسال المبلغ المحدد لإكمال العملية",
-          "verifyDeposit": "تحقق من الإيداع"
-        },
-        
-          "DepositStatus": {
-            "depositStatus": "حالة الإيداع",
-            "yourDeposits": "الإيداعات الخاصة بك",
-            "trackDeposits": "تتبع حالة جميع معاملات الإيداع الخاصة بك",
-            "loadingDeposits": "جاري تحميل الإيداعات...",
-            "error": "خطأ",
-            "noDepositsFound": "لم يتم العثور على أي إيداعات.",
-            "initiateDeposit": "بدء الإيداع",
-            "processing": "جاري المعالجة...",
-            "amount": "المبلغ",
-            "status": "الحالة",
-            "expiresAt": "تاريخ انتهاء الصلاحية",
-            "transaction": "المعاملة",
-            "verifyTransaction":"تحقق من المعاملة"          
-        },  
-        
-        "layout":{
-          "notAuthenticated": "غير مصدق",
-          "login": "تسجيل الدخول"
-        },      
-          "faq": {
-            "title": "الأسئلة الشائعة",
-            "searchPlaceholder": "ابحث في الأسئلة الشائعة...",
-            "sections": {
-              "accountManagement": {
-                "title": "إدارة الحساب",
-                "items": {
-                  "createAccount": {
-                    "question": "كيف يمكنني إنشاء حساب؟",
-                    "answer": "لإنشاء حساب، اضغط على 'تسجيل'..."
-                  },
-                  "resetPassword": {
-                    "question": "كيف يمكنني إعادة تعيين كلمة المرور؟",
-                    "answer": "اذهب إلى صفحة تسجيل الدخول واضغط على 'نسيت كلمة المرور'..."
-                  }
-                }
-              },
-              "investment": {
-                "title": "الاستثمار",
-                "items": {
-                  "investmentPlans": {
-                    "question": "ما هي خطط الاستثمار المتوفرة؟",
-                    "answer": "نحن نقدم مجموعة واسعة من خطط الاستثمار بمستويات مختلفة للاختيار من بينها. تصفح المستويات في الصفحة الرئيسية لفهم أفضل."
-                  }
-                }
-              },
-              "security": {
-                "title": "الأمان",
-                "items": {
-                  "accountSecurity": {
-                    "question": "ما مدى أمان حسابي؟",
-                    "answer": "نستخدم نظام مصادقة قوي للتحقق من هوية المستخدمين وضمان تطبيق آمن."
-                  }
-                }
-              }
-            }
-          },"support":
-          {
-            "title": "الدعم",
-            "overview": {
-              "title": "دعم العملاء",
-              "description": "نحن هنا لمساعدتك على مدار الساعة. اختر قناة الدعم المفضلة لديك."
-            },
-            "channels": {
-              "telegram": {
-                "label": "دعم تيليجرام",
-                "button": "انضم إلى دعم تيليجرام",
-                "link": "https://t.me/eurrobanks"
-              },
-              "liveChat": {
-                "label": "الدردشة المباشرة"
-              },
-              "faq": {
-                "label": "الأسئلة الشائعة"
-              }
-            },
-            "resources": {
-              "title": "موارد الدعم",
-              "userGuide": {
-                "label": "دليل المستخدم",
-                "value": "مساعدة شاملة"
-              },
-              "supportHours": {
-                "label": "ساعات الدعم",
-                "value": "متاح 24/7"
-              }
-            }
+  },
+  "DepositErrorReasons": {
+    "depositError": "خطأ في الإيداع",
+    "authenticationIssues": "مشكلات المصادقة",
+    "authReason1": "بيانات تسجيل الدخول غير صحيحة أو منتهية الصلاحية",
+    "authReason2": "تم تعليق الحساب مؤقتًا",
+    "authReason3": "مشكلات في المصادقة الثنائية",
+    "authReason4": "لم يكتمل التحقق من الحساب",
+    "networkIssues": "مشكلات الشبكة والاتصال",
+    "networkReason1": "اتصال إنترنت غير مستقر",
+    "networkReason2": "عدم توفر الخادم مؤقتًا",
+    "networkReason3": "إعدادات جدار الحماية أو الأمان تمنع الاتصال",
+    "networkReason4": "تداخل من الشبكات الخاصة الافتراضية أو الوكلاء",
+    "transactionConflicts": "تعارضات في حالة المعاملة",
+    "transactionReason1": "الإيداع المعلق قيد التقدم بالفعل",
+    "transactionReason2": "المعاملة الأخيرة لم تتم معالجتها بعد",
+    "transactionReason3": "تعارض في المعاملات داخل النظام",
+    "transactionReason4": "طابور الإيداع ممتلئ",
+    "helpMessage": "إذا استمرت المشكلة، يرجى الاتصال بفريق الدعم لدينا مع تفاصيل الخطأ المحددة.",
+    "contactSupport": "اتصل بالدعم"
+  },
+  "DepositInfo": {
+    "depositInfo": "معلومات الإيداع",
+    "depositSuccess": "تم بدء الإيداع بنجاح",
+    "depositProcessing": "يتم الآن معالجة إيداعك. يرجى إتمام الدفع ضمن الإطار الزمني المحدد.",
+    "timeRemaining": "الوقت المتبقي",
+    "timeLimitNotice": "يجب إكمال الدفع خلال 30 دقيقة",
+    "depositAddress": "عنوان الإيداع",
+    "usdtTrc20Address": "عنوان USDT BSC",
+    "copySuccess": "تم النسخ إلى الحافظة!",
+    "onlySendUsdt": "يرجى إرسال USDT (BSC) فقط إلى هذا العنوان. إرسال عملات أخرى قد يؤدي إلى فقدانها بشكل دائم.",
+    "importantNotice": "تنبيه هام",
+    "importantDetails": "• الإيداعات صالحة فقط ضمن الإطار الزمني المحدد بـ30 دقيقة\n• بعد 30 دقيقة، ستحتاج إلى بدء إيداع جديد\n• تأكد من إرسال المبلغ المحدد لإكمال العملية",
+    "verifyDeposit": "تحقق من الإيداع"
+  },
+
+  "DepositStatus": {
+    "depositStatus": "حالة الإيداع",
+    "yourDeposits": "الإيداعات الخاصة بك",
+    "trackDeposits": "تتبع حالة جميع معاملات الإيداع الخاصة بك",
+    "loadingDeposits": "جاري تحميل الإيداعات...",
+    "error": "خطأ",
+    "noDepositsFound": "لم يتم العثور على أي إيداعات.",
+    "initiateDeposit": "بدء الإيداع",
+    "processing": "جاري المعالجة...",
+    "amount": "المبلغ",
+    "status": "الحالة",
+    "expiresAt": "تاريخ انتهاء الصلاحية",
+    "transaction": "المعاملة",
+    "verifyTransaction": "تحقق من المعاملة"
+  },
+
+  "layout": {
+    "notAuthenticated": "غير مصدق",
+    "login": "تسجيل الدخول"
+  },
+  "faq": {
+    "title": "الأسئلة الشائعة",
+    "searchPlaceholder": "ابحث في الأسئلة الشائعة...",
+    "sections": {
+      "accountManagement": {
+        "title": "إدارة الحساب",
+        "items": {
+          "createAccount": {
+            "question": "كيف يمكنني إنشاء حساب؟",
+            "answer": "لإنشاء حساب، اضغط على 'تسجيل'..."
           },
-          
-          
-            "ProfilePage": {
-              "profile": "الملف الشخصي",
-              "fetchError": "حدث خطأ أثناء جلب بيانات المستخدم.",
-              "unknownStatus": "غير معروف",
-              "memberSince": "عضو منذ {date}",
-              "contactInformation": "معلومات الاتصال",
-              "email": "البريد الإلكتروني",
-              "phone": "الهاتف",
-              "referralCode": "كود الإحالة",
-              "security": "الأمان",
-              "settings": "الإعدادات",
-              "logout": "تسجيل الخروج",
-              "copied": "تم النسخ إلى الحافظة!",
-              "level": "المستوى",
-              "referrals": "الإحالات",
-              "status": "حالة الحساب"
-            },
-            
-              "WithdrawalStatus": {
-                "header": "حالة السحب",
-                "overviewTitle": "عمليات السحب الخاصة بك",
-                "overviewSubtitle": "تتبع حالة جميع طلبات السحب الخاصة بك",
-                "loading": "جارٍ التحميل...",
-                "fetchError": "فشل في جلب عمليات السحب: {statusText}",
-                "unknownError": "حدث خطأ غير معروف",
-                "consoleError": "خطأ في الجلب:",
-                "loadError": "فشل في تحميل عمليات السحب. يرجى المحاولة مرة أخرى.",
-                "noRecords": "ليس لديك أي سجلات سحب.",
-                "amount": "المبلغ",
-                "status": "الحالة",
-                "reason": "السبب",
-                "notApplicable": "غير متوفر",
-                "withdrawalButton": "بدء السحب",
-                "statuses": {
-                  "pending": "معلق",
-                  "delayed": "مؤجل",
-                  "canceled": "ملغي",
-                  "completed": "مكتمل"
-                }
-              },
-                "WithdrawalForm": {
-                  "header": {
-                    "title": "سحب الأموال"
-                  },
-                  "overview": {
-                    "title": "قم بسحب الأموال",
-                    "balance": "الرصيد المتاح: ${balance}"
-                  },
-                  "form": {
-                    "amountLabel": "مبلغ السحب",
-                    "amountPlaceholder": "أدخل المبلغ",
-                    "walletPlaceholder": "أدخل عنوان محفظة USDT BSC",
-                    "loading": "جاري التحميل...",
-                    "submitButton": "سحب الأموال",
-                    "walletLabel": "عنوان محفظة USDT Binace Smart Chain BSC"
+          "resetPassword": {
+            "question": "كيف يمكنني إعادة تعيين كلمة المرور؟",
+            "answer": "اذهب إلى صفحة تسجيل الدخول واضغط على 'نسيت كلمة المرور'..."
+          }
+        }
+      },
+      "investment": {
+        "title": "الاستثمار",
+        "items": {
+          "investmentPlans": {
+            "question": "ما هي خطط الاستثمار المتوفرة؟",
+            "answer": "نحن نقدم مجموعة واسعة من خطط الاستثمار بمستويات مختلفة للاختيار من بينها. تصفح المستويات في الصفحة الرئيسية لفهم أفضل."
+          }
+        }
+      },
+      "security": {
+        "title": "الأمان",
+        "items": {
+          "accountSecurity": {
+            "question": "ما مدى أمان حسابي؟",
+            "answer": "نستخدم نظام مصادقة قوي للتحقق من هوية المستخدمين وضمان تطبيق آمن."
+          }
+        }
+      }
+    }
+  },
+  "support": {
+    "title": "الدعم",
+    "overview": {
+      "title": "دعم العملاء",
+      "description": "نحن هنا لمساعدتك على مدار الساعة. اختر قناة الدعم المفضلة لديك."
+    },
+    "channels": {
+      "telegram": {
+        "label": "دعم تيليجرام",
+        "button": "انضم إلى دعم تيليجرام",
+        "link": "https://t.me/eurrobanks"
+      },
+      "liveChat": {
+        "label": "الدردشة المباشرة"
+      },
+      "faq": {
+        "label": "الأسئلة الشائعة"
+      }
+    },
+    "resources": {
+      "title": "موارد الدعم",
+      "userGuide": {
+        "label": "دليل المستخدم",
+        "value": "مساعدة شاملة"
+      },
+      "supportHours": {
+        "label": "ساعات الدعم",
+        "value": "متاح 24/7"
+      }
+    }
+  },
 
+  "ProfilePage": {
+    "profile": "الملف الشخصي",
+    "fetchError": "حدث خطأ أثناء جلب بيانات المستخدم.",
+    "unknownStatus": "غير معروف",
+    "memberSince": "عضو منذ {date}",
+    "contactInformation": "معلومات الاتصال",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "referralCode": "كود الإحالة",
+    "security": "الأمان",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج",
+    "copied": "تم النسخ إلى الحافظة!",
+    "level": "المستوى",
+    "referrals": "الإحالات",
+    "status": "حالة الحساب"
+  },
 
-                  },
-                  "errors": {
-                    "unauthenticated": "المستخدم غير مصدق",
-                    "invalidAmount": "مبلغ السحب غير صالح",
-                    "exceedsBalance": "المبلغ أكبر من الرصيد الإجمالي",
-                    "invalidWalletAddress": "عنوان محفظة USDT BSC غير صالح",
-                    "unexpected": "حدث خطأ غير متوقع"
-                  },
-                  "success": {
-                    "withdrawalPlaced": "تم تقديم طلب السحب بنجاح!"
-                  }
-                },
-                
-                  "LevelsPage": {
-                    "title": "مستويات الاستثمار",
-                    "schemeTitle": "نظام الاستثمار",
-                    "schemeDescription": "اختر مستوى استثمارك لبدء كسب الأرباح اليومية",
-                    "level": "المستوى {level}",
-                    "dailyProfit": "الربح اليومي",
-                    "requiredDeposit": "الإيداع المطلوب"
-                  },"rules": {
+  "WithdrawalStatus": {
+    "header": "حالة السحب",
+    "overviewTitle": "عمليات السحب الخاصة بك",
+    "overviewSubtitle": "تتبع حالة جميع طلبات السحب الخاصة بك",
+    "loading": "جارٍ التحميل...",
+    "fetchError": "فشل في جلب عمليات السحب: {statusText}",
+    "unknownError": "حدث خطأ غير معروف",
+    "consoleError": "خطأ في الجلب:",
+    "loadError": "فشل في تحميل عمليات السحب. يرجى المحاولة مرة أخرى.",
+    "noRecords": "ليس لديك أي سجلات سحب.",
+    "amount": "المبلغ",
+    "status": "الحالة",
+    "reason": "السبب",
+    "notApplicable": "غير متوفر",
+    "withdrawalButton": "بدء السحب",
+    "statuses": {
+      "pending": "معلق",
+      "delayed": "مؤجل",
+      "canceled": "ملغي",
+      "completed": "مكتمل"
+    }
+  },
+  "WithdrawalForm": {
+    "header": {
+      "title": "سحب الأموال"
+    },
+    "overview": {
+      "title": "قم بسحب الأموال",
+      "balance": "الرصيد المتاح: ${balance}"
+    },
+    "form": {
+      "amountLabel": "مبلغ السحب",
+      "amountPlaceholder": "أدخل المبلغ",
+      "walletPlaceholder": "أدخل عنوان محفظة USDT BSC",
+      "loading": "جاري التحميل...",
+      "submitButton": "سحب الأموال",
+      "walletLabel": "عنوان محفظة USDT Binace Smart Chain BSC"
+    },
+    "errors": {
+      "unauthenticated": "المستخدم غير مصدق",
+      "invalidAmount": "مبلغ السحب غير صالح",
+      "exceedsBalance": "المبلغ أكبر من الرصيد الإجمالي",
+      "invalidWalletAddress": "عنوان محفظة USDT BSC غير صالح",
+      "unexpected": "حدث خطأ غير متوقع"
+    },
+    "success": {
+      "withdrawalPlaced": "تم تقديم طلب السحب بنجاح!"
+    }
+  },
+
+  "LevelsPage": {
+    "title": "مستويات الاستثمار",
+    "schemeTitle": "نظام الاستثمار",
+    "schemeDescription": "اختر مستوى استثمارك لبدء كسب الأرباح اليومية",
+    "level": "المستوى {level}",
+    "dailyProfit": "الربح اليومي",
+    "requiredDeposit": "الإيداع المطلوب"
+  },
+  "rules": {
     "pageTitle": "قواعد المنصة",
     "backToDashboard": "العودة إلى لوحة التحكم",
     "header": {
@@ -422,28 +418,48 @@
       "title": "إخلاء المسؤولية",
       "content": "استثمارات العملات المشفرة عرضة لمخاطر السوق. يمكن أن ترتفع قيمة الاستثمارات أو تنخفض، وقد لا تسترد المبلغ الذي استثمرته. الأداء السابق ليس ضمانًا للنتائج المستقبلية."
     }
+  },
+
+  "PaymentPage": {
+    "payment": "الدفع",
+    "error": "خطأ",
+    "backToDeposit": "العودة إلى الإيداع",
+    "awaitingPayment": "في انتظار الدفع",
+    "paymentExpired": "انتهت صلاحية الدفع",
+    "paymentReceived": "تم استلام الدفع",
+    "timeRemaining": "الوقت المتبقي",
+    "tryAgain": "حاول مرة أخرى",
+    "continue": "متابعة",
+    "sendExactly": "أرسل بالضبط",
+    "walletAddress": "عنوان المحفظة",
+    "network": "الشبكة",
+    "checkStatus": "تحقق من حالة الدفع",
+    "checkingStatus": "جاري التحقق من الحالة...",
+    "instructions": "تعليمات",
+    "sendExactAmount": "أرسل المبلغ المحدد أعلاه بالضبط.",
+    "confirmationTime": "قد يستغرق التأكيد من 10 إلى 30 دقيقة.",
+    "clickCheck": "انقر على 'تحقق من حالة الدفع' بعد الإرسال.",
+    "doNotClose": "لا تغلق هذه الصفحة حتى يتم تأكيد الدفع.",
+    "copyAddress": "نسخ العنوان",
+    "addressCopied": "تم نسخ العنوان!",
+    "scanQrCode": "امسح رمز QR باستخدام تطبيق المحفظة",
+    "orSendManually": "أو أرسل يدويًا إلى العنوان أدناه",
+    "paymentDetails": "تفاصيل الدفع",
+    "amount": "المبلغ",
+    "currency": "العملة",
+    "orderID": "رقم الطلب",
+    "createdAt": "تم الإنشاء في",
+    "expiresAt": "تنتهي الصلاحية في",
+    "paymentMethod": "طريقة الدفع",
+    "paymentStatus": "حالة الدفع",
+    "pending": "قيد الانتظار",
+    "completed": "مكتمل",
+    "expired": "منتهي الصلاحية",
+    "failed": "فشل",
+    "unexpectedError": "حدث خطأ غير متوقع",
+    "paymentNotFound": "لم يتم العثور على معلومات الدفع",
+    "invalidPaymentDetails": "تفاصيل الدفع غير صالحة",
+    "errorFetchingDetails": "خطأ في جلب تفاصيل الدفع",
+    "paymentIdNotFound": "لم يتم العثور على معرف الدفع"
   }
-   
-  
-                    
-                  
-                
-                
-              
-              
-            
-            
-          
-          
-          
-          
-          
-        
-        
-        
-      
-      
-
-
-    
 }

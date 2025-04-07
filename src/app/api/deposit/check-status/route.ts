@@ -6,138 +6,86 @@ import axios from "axios"
 const NOWPAYMENTS_API_KEY = process.env.NOWPAYMENTS_API_KEY
 const NOWPAYMENTS_API_URL = "https://api.nowpayments.io/v1"
 
-// Update the updateUserBalance function to handle locale-aware redirects
-async function updateUserBalance(userId: string, amount: number, paymentId: string) {
+export async function GET(request: Request) {
   try {
-    // Get current user data
-    const { data: userData, error: userError } = await supabase
-      .from("users")
-      .select("balance, total_dp")
-      .eq("id", userId)
-      .single()
+    // Get payment ID from query params
+    const { searchParams } = new URL(request.url)
+    const paymentId = searchParams.get("paymentId")
 
-    if (userError || !userData) {
-      console.error("User not found:", userError)
-      throw new Error("User not found")
+    if (!paymentId) {
+      return NextResponse.json({ error: "Payment ID is required" }, { status: 400 })
     }
 
-    // Get deposit data to retrieve locale
+    // First, check our database for the payment
     const { data: depositData, error: depositError } = await supabase
       .from("deposits")
-      .select("locale")
+      .select("*")
       .eq("payment_id", paymentId)
       .single()
 
-    const locale = depositData?.locale || "en"
+    if (depositError) {
+      console.error("Database error:", depositError)
+      return NextResponse.json({ error: "Payment not found" }, { status: 404 })
+    }
 
-    const newBalance = userData.balance + amount
-    const dp = amount * 0.02 // 2% DP calculation
-    const newTotalDp = userData.total_dp + dp
-
-    // Update user balance and total_dp
-    const { error: updateError } = await supabase
-      .from("users")
-      .update({
-        balance: newBalance,
-        total_dp: newTotalDp,
+    // If we already have a confirmed status in our database, return it
+    if (depositData.status === "completed" || depositData.status === "confirmed") {
+      return NextResponse.json({
+        success: true,
+        status: depositData.status,
       })
-      .eq("id", userId)
-
-    if (updateError) {
-      console.error("Failed to update user balance:", updateError)
-      throw new Error("Failed to update user balance")
     }
 
-    console.log(`Updated balance for user ${userId}: +${amount}, new balance: ${newBalance}, locale: ${locale}`)
-    return true
-  } catch (error) {
-    console.error("Error updating user balance:", error)
-    throw error
-  }
-}
-
-// Update the POST function to pass payment_id to updateUserBalance
-export async function POST(request: Request) {
-  try {
-    const { payment_id } = await request.json()
-
-    if (!payment_id) {
-      return NextResponse.json({ error: "Missing payment ID" }, { status: 400 })
-    }
-
-    // Check payment status from NOWPayments API
-    const response = await axios.get(`${NOWPAYMENTS_API_URL}/payment/${payment_id}`, {
-      headers: {
-        "x-api-key": NOWPAYMENTS_API_KEY,
-      },
-    })
-
-    if (!response.data) {
-      return NextResponse.json({ error: "Failed to get payment status" }, { status: 500 })
-    }
-
-    const paymentStatus = response.data.payment_status
-
-    // Find the deposit in our database
-    const { data: deposit, error: depositError } = await supabase
-      .from("deposits")
-      .select("*")
-      .eq("payment_id", payment_id)
-      .single()
-
-    if (depositError || !deposit) {
-      return NextResponse.json({ error: "Deposit not found" }, { status: 404 })
-    }
-
-    // Map NOWPayments status to our status
-    let depositStatus
-    switch (paymentStatus) {
-      case "finished":
-        depositStatus = "completed"
-        // If status is completed but we haven't processed it yet, update user balance
-        if (deposit.status !== "completed") {
-          await updateUserBalance(deposit.user_id, deposit.amount, payment_id)
-        }
-        break
-      case "partially_paid":
-        depositStatus = "partially_paid"
-        break
-      case "confirming":
-      case "sending":
-        depositStatus = "processing"
-        break
-      case "failed":
-      case "refunded":
-      case "expired":
-        depositStatus = "failed"
-        break
-      default:
-        depositStatus = "pending"
-    }
-
-    // Update deposit status if it has changed
-    if (deposit.status !== depositStatus) {
-      const { error: updateError } = await supabase
-        .from("deposits")
-        .update({
-          status: depositStatus,
-          updated_at: new Date().toISOString(),
-          payment_details: response.data,
-        })
-        .eq("id", deposit.id)
-
-      if (updateError) {
-        console.error("Failed to update deposit:", updateError)
-        return NextResponse.json({ error: "Failed to update deposit" }, { status: 500 })
+    // Check the payment status from NOWPayments
+    const statusUrl = `${NOWPAYMENTS_API_URL}/payment/${depositData.nowpayments_id}`
+    console.log('statusUrl',statusUrl)
+    try {
+      const response = await axios.get(statusUrl, {
+        headers: {
+          "x-api-key": NOWPAYMENTS_API_KEY,
+        },
+      })
+      console.log('response from nowpayments',response)
+      if (!response.data) {
+        return NextResponse.json({ error: "Failed to fetch payment status from NOWPayments" }, { status: 500 })
       }
-    }
 
-    return NextResponse.json({
-      success: true,
-      status: depositStatus,
-      payment: response.data,
-      locale: deposit.locale || "ar",
-    })
+    
+
+      const paymentStatus = response.data.payment_status
+
+      // Map NOWPayments status to our status
+      let status = depositData.status
+      if (paymentStatus === "confirmed" || paymentStatus === "finished") {
+        status = "completed"
+      } else if (paymentStatus === "waiting") {
+        status = "creating"
+      } else if (paymentStatus === "expired") {
+        status = "expired"
+      }
+
+      // Update our database with the latest status
+      if (status !== depositData.status) {
+        const { error: updateError } = await supabase.from("deposits").update({ status }).eq("payment_id", paymentId)
+
+        if (updateError) {
+          console.error("Error updating payment status:", updateError)
+        }
+      }
+
+      return NextResponse.json({
+        success: true,
+        status,
+      })
+    } catch (apiError) {
+      console.error("NOWPayments API error:", apiError)
+
+      // If we can't get status from NOWPayments, return what we have from our database
+      return NextResponse.json({
+        success: true,
+        status: depositData.status,
+      })
+    }
   } catch (error) {
     console.error("Error checking payment status:", error)
     const errorMessage = error instanceof Error ? error.message : "Unknown error"
