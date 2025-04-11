@@ -258,36 +258,42 @@ const WithdrawalRequestCard = ({ request, onUpdateStatus }: {
             )}
           </div>
 
-          {request.status !='cancelled' && (
+            {(request.status !== 'cancelled' && request.status !== 'completed') && (
             <div className="flex space-x-2 w-full md:w-auto justify-end">
-              <button 
+              <>
+                <button 
                 onClick={() => initiateStatusUpdate('completed')}
-                className="bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition"
-              >
+                disabled={loading}
+                className={`bg-green-600 text-white p-2 rounded-full hover:bg-green-700 transition ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
                 <CheckCircle color='green' size={20} />
-              </button>
-              <button 
+                </button>
+                <button 
                 onClick={() => initiateStatusUpdate('delayed')}
-                className="bg-orange-600 text-white p-2 rounded-full hover:bg-orange-700 transition"
-              >
+                disabled={loading}
+                className={`bg-orange-600 text-white p-2 rounded-full hover:bg-orange-700 transition ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
                 <Clock color='orange' size={20} />
+                </button>
+              </>
+              <button 
+              onClick={() => initiateStatusUpdate('cancelled')}
+              disabled={loading}
+              className={`bg-red-600 text-white p-2 rounded-full hover:bg-red-700 transition ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              >
+              <XCircle color='red' size={20} />
               </button>
               <button 
-                onClick={() => initiateStatusUpdate('cancelled')}
-                className="bg-red-600 text-white p-2 rounded-full hover:bg-red-700 transition"
+              onClick={() => setShowBalanceDialog(true)}  // Open balance update dialog
+              disabled={loading}
+              className={`bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
-                <XCircle color='red' size={20} />
-              </button>
-              <button 
-                onClick={() => setShowBalanceDialog(true)}  // Open balance update dialog
-                className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition"
-              >
-                Update Balance
+              Update Balance
               </button>
             </div>
-          )}
-        </div>
-      </div>
+            )}
+          </div>
+          </div>
 
       {/* Balance Update Dialog */}
       <Dialog 

@@ -81,7 +81,22 @@ const AnnouncementPage: React.FC = () => {
                   {announcement.title}
                 </h3>
                 <p className="text-muted-foreground">
-                  {announcement.description}
+                  {announcement.description.split(' ').map((word, index) => {
+                  const isLink = word.startsWith('http://') || word.startsWith('https://');
+                  return isLink ? (
+                    <a
+                    key={index}
+                    href={word}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:underline"
+                    >
+                    {word}
+                    </a>
+                  ) : (
+                    <span key={index}>{word} </span>
+                  );
+                  })}
                 </p>
               </div>
             ))

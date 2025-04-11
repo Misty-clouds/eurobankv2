@@ -314,7 +314,7 @@
     "statuses": {
       "pending": "Pending",
       "delayed": "Delayed",
-      "canceled": "Canceled",
+      "cancelled": "Canceled",
       "completed": "Completed"
     }
   },

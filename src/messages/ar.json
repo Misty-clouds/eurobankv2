@@ -313,7 +313,7 @@
     "statuses": {
       "pending": "معلق",
       "delayed": "مؤجل",
-      "canceled": "ملغي",
+      "cancelled": "ملغي",
       "completed": "مكتمل"
     }
   },

@@ -161,7 +161,7 @@ export default function UserWithdrawalStatus() {
         {/* Withdrawal Button */}
         <button
           onClick={toWithdrawal}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 mt-3 mb-[100px] rounded-2xl flex items-center justify-center space-x-3 transition-all"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 mt-3 mb-[200px] rounded-2xl flex items-center justify-center space-x-3 transition-all"
         >
           <DollarSign className="w-6 h-6" />
           <span>{t('withdrawalButton')}</span>

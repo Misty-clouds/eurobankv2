@@ -9,6 +9,7 @@ import { makeRequest } from '../../../utils/bitgetApi';
  * @param chain - Blockchain network (default: 'BEP20')
  * @returns { transactionHash: string }
  */
+
  async function processWithdrawal(
   walletAddress: string,
   amount: number,
