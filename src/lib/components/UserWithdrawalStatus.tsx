@@ -148,7 +148,7 @@ export default function UserWithdrawalStatus() {
                     <div>
                       <p className="text-sm text-muted-foreground">{t('reason')}</p>
                       <p className="font-medium text-primary">
-                        {withdrawal.reason || t('notApplicable')}
+                        { t('notApplicable')}
                       </p>
                     </div>
                   </div>
