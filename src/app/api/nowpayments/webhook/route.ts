@@ -260,6 +260,13 @@ async function updateUserBalance(userId: string, amount: number, paymentId: stri
 
     console.log("Found user data:", userData)
 
+    const formatDamount = (amount: number) => {
+      if (amount == 80) {
+        return 2;
+      } else {
+        return amount * 0.3;
+      }
+    }
     const { data: depositData, error: depositError } = await supabase
       .from("deposits")
       .select("locale")
@@ -270,7 +277,7 @@ async function updateUserBalance(userId: string, amount: number, paymentId: stri
     console.log("Deposit locale:", locale)
 
     const newBalance = userData.balance + amount
-    const dp = amount * 0.02
+    const dp = formatDamount(amount)
     const newTotalDp = userData.total_dp + dp
     const newTotalDpInt=parseInt(newTotalDp.toFixed(0))
 
