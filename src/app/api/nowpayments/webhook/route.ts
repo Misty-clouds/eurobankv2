@@ -264,7 +264,7 @@ async function updateUserBalance(userId: string, amount: number, paymentId: stri
       if (amount == 80) {
         return 2;
       } else {
-        return amount * 0.3;
+        return amount * 0.03;
       }
     }
     const { data: depositData, error: depositError } = await supabase
